@@ -28,7 +28,14 @@ function LoginForm() {
       // Hard navigation ensures the auth cookie is sent with the first request.
       window.location.href = redirect;
     } catch (error: unknown) {
-      toast.error('Giriş başarısız. Lütfen bilgilerinizi kontrol edin.');
+      const message = error instanceof Error ? error.message.toLowerCase() : '';
+      if (message.includes('email not confirmed')) {
+        toast.error('E-posta adresi doğrulanmamış. Supabase doğrulama bağlantısını onaylayın.');
+      } else if (message.includes('invalid api key') || message.includes('invalid jwt')) {
+        toast.error('Supabase bağlantı anahtarı geçersiz. Ortam değişkenlerini kontrol edin.');
+      } else {
+        toast.error('Giriş başarısız. E-posta ve şifreyi kontrol edin.');
+      }
       console.error(error);
       setLoading(false);
     }

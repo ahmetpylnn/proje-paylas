@@ -23,7 +23,7 @@ export const logout = async () => {
 };
 
 export const signIn = async (email: string, password: string) => {
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  const { data, error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
   if (error || !data.user || !data.session) throw error || new Error('Authentication failed');
   return data;
 };

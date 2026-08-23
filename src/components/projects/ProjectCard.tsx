@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Eye, Download, Star, Calendar } from 'lucide-react';
 import { GithubIcon } from '@/components/shared/BrandIcons';
@@ -16,6 +17,8 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index = 0, featured = false }: ProjectCardProps) {
+  const [imageFailed, setImageFailed] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -39,11 +42,12 @@ export default function ProjectCard({ project, index = 0, featured = false }: Pr
 
           {/* Cover image */}
           <div className="relative h-48 bg-[#161616] overflow-hidden">
-            {project.coverImage ? (
+            {project.coverImage && !imageFailed ? (
               <Image
                 src={project.coverImage}
                 alt={project.title}
                 fill
+                onError={() => setImageFailed(true)}
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />

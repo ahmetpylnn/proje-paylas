@@ -26,6 +26,9 @@ export async function generateStaticParams() {
   }
 }
 
+// Projects are managed in Supabase, so details must not become stale after deploy.
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({ params }: Props) {
   const resolvedParams = await params;
   const project = await safeGetProjectBySlug(resolvedParams.slug);

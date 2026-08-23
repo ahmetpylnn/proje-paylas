@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Ahmet Paylan</title>
+  <desc id="desc">Yazılım projeleri ve geliştirici portföyü</desc>
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  <rect x="72" y="72" width="1056" height="486" rx="24" fill="#111111" stroke="#292929"/>
+  <g transform="translate(112 126) scale(2.1)">
+    <path d="M10 48 25 13h7l-4 10 9 25h-8l-2.2-7H17.8l-2.7 7H10Zm10.5-13h4.9L23 27l-2.5 8Z" fill="#e7e9ed"/>
+    <path d="M31 25h12c7 0 10 3.7 10 9 0 3.3-1.5 5.9-4.2 7.4L54 48h-8l-4.1-5.8H38V48h-7V25Zm7 5.8v5.7h4.4c2.4 0 3.6-1 3.6-2.9s-1.2-2.8-3.6-2.8H38Z" fill="#b7bdc7"/>
+    <path d="M29 23h5l-5 26h-5l5-26Z" fill="#4169e1"/>
+  </g>
+  <text x="112" y="360" fill="#ffffff" font-family="Arial, sans-serif" font-size="72" font-weight="700">ahmetpylnn</text>
+  <text x="116" y="425" fill="#a1a1aa" font-family="Arial, sans-serif" font-size="30">Yazılım projeleri ve geliştirici portföyü</text>
+</svg>

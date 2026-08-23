@@ -2,11 +2,13 @@ import Link from 'next/link';
 import { FileText } from 'lucide-react';
 import { safeGetBlogPosts } from '@/lib/supabase/queries';
 import { formatDate } from '@/lib/utils';
+import { createMetadata } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = createMetadata({
   title: 'Blog',
+  path: '/blog',
   description: 'ahmetpylnn üzerindeki notlar ve yazılar.',
-};
+});
 
 export default async function BlogPage() {
   const posts = await safeGetBlogPosts();

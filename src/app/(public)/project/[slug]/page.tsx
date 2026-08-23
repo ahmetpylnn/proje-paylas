@@ -12,6 +12,7 @@ import GallerySlider from '@/components/projects/GallerySlider';
 import ProjectCard from '@/components/projects/ProjectCard';
 import ClientAnalytics from '@/components/shared/ClientAnalytics';
 import TrackedProjectLink from '@/components/projects/TrackedProjectLink';
+import { absoluteUrl, createMetadata, DEFAULT_OG_IMAGE, jsonLd, SITE_NAME } from '@/lib/seo';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -33,17 +34,19 @@ export const dynamic = 'force-dynamic';
 export async function generateMetadata({ params }: Props) {
   const resolvedParams = await params;
   const project = await safeGetProjectBySlug(resolvedParams.slug);
-  if (!project) return {};
+  if (!project) {
+    return { title: 'Sayfa Bulunamadı', robots: { index: false, follow: false } };
+  }
 
-  return {
+  return createMetadata({
     title: project.title,
     description: project.shortDescription,
-    openGraph: {
-      title: project.title,
-      description: project.shortDescription,
-      images: project.coverImage ? [project.coverImage] : [],
-    },
-  };
+    path: `/project/${project.slug}`,
+    image: project.coverImage || DEFAULT_OG_IMAGE,
+    keywords: [...project.tags, ...project.technologies, project.category].filter(Boolean),
+    publishedTime: project.releaseDate || project.createdAt,
+    modifiedTime: project.updatedAt,
+  });
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
@@ -63,25 +66,30 @@ export default async function ProjectDetailPage({ params }: Props) {
     .filter((p) => p.id !== project.id)
     .slice(0, 3);
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ahmetpylnn.vercel.app';
-  const projectUrl = `${siteUrl}/project/${project.slug}`;
+  const projectUrl = absoluteUrl(`/project/${project.slug}`);
 
   // JSON-LD Structured Data
-  const jsonLd = {
+  const projectJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
     name: project.title,
     description: project.shortDescription,
+    url: projectUrl,
+    author: { '@type': 'Person', name: SITE_NAME, url: absoluteUrl() },
     applicationCategory: project.category,
-    operatingSystem: 'Any',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
-    softwareVersion: project.version,
-    datePublished: project.releaseDate || project.createdAt,
-    image: project.coverImage,
+    ...(project.version ? { softwareVersion: project.version } : {}),
+    ...(project.releaseDate || project.createdAt ? { datePublished: project.releaseDate || project.createdAt } : {}),
+    ...(project.updatedAt ? { dateModified: project.updatedAt } : {}),
+    ...(project.coverImage ? { image: project.coverImage } : {}),
+  };
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: absoluteUrl() },
+      { '@type': 'ListItem', position: 2, name: 'Projeler', item: absoluteUrl('/projects') },
+      { '@type': 'ListItem', position: 3, name: project.title, item: projectUrl },
+    ],
   };
 
   return (
@@ -89,7 +97,11 @@ export default async function ProjectDetailPage({ params }: Props) {
       <ClientAnalytics type="view" projectId={project.id} projectTitle={project.title} />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(projectJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbJsonLd) }}
       />
       <article className="min-h-screen py-12 px-4">
         <div className="max-w-4xl mx-auto">
@@ -141,7 +153,7 @@ export default async function ProjectDetailPage({ params }: Props) {
               <div className="relative aspect-video rounded-xl overflow-hidden border border-[#222222]">
                 <Image
                   src={project.coverImage}
-                  alt={project.title}
+                  alt={`${project.title} proje ekran görüntüsü`}
                   fill
                   className="object-cover"
                   priority

@@ -6,6 +6,7 @@ import StatsSection from '@/components/home/StatsSection';
 import CTASection from '@/components/home/CTASection';
 import AnnouncementSection from '@/components/home/AnnouncementSection';
 import { safeGetProjects, safeGetDashboardStats, safeGetSiteSettings } from '@/lib/supabase/queries';
+import { absoluteUrl, DEFAULT_DESCRIPTION, jsonLd, SITE_NAME } from '@/lib/seo';
 
 export const revalidate = 0;
 
@@ -24,6 +25,35 @@ export default async function HomePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLd({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: SITE_NAME,
+            url: absoluteUrl(),
+            description: settings?.seoDescription || DEFAULT_DESCRIPTION,
+            inLanguage: 'tr-TR',
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLd({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: settings?.developerName || SITE_NAME,
+            url: absoluteUrl(),
+            ...(settings?.developerAvatar ? { image: settings.developerAvatar } : {}),
+            ...(settings?.githubUrl || settings?.linkedinUrl || settings?.twitterUrl
+              ? { sameAs: [settings.githubUrl, settings.linkedinUrl, settings.twitterUrl].filter(Boolean) }
+              : {}),
+            ...(settings?.developerTitle ? { jobTitle: settings.developerTitle } : {}),
+          }),
+        }}
+      />
       <HeroSection />
       <FeaturedProjects projects={featuredProjects} />
       <CategorySection counts={categoryCounts} />

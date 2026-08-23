@@ -5,13 +5,15 @@ import { Mail, Code2, Cpu } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, TwitterIcon } from '@/components/shared/BrandIcons';
 import ReactMarkdown from 'react-markdown';
 import TechBadge from '@/components/shared/TechBadge';
+import { createMetadata } from '@/lib/seo';
 
 export const revalidate = 0;
 
-export const metadata = {
+export const metadata = createMetadata({
   title: 'Hakkımda',
+  path: '/about',
   description: 'Geliştirici hakkında bilgiler, yetenekler ve deneyimler.',
-};
+});
 
 export default async function AboutPage() {
   const settings = (await safeGetSiteSettings()) ?? { id: 'main', ...DEFAULT_SITE_SETTINGS, updatedAt: '' };

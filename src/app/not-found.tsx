@@ -2,6 +2,11 @@ import Link from 'next/link';
 import { Home } from 'lucide-react';
 import BackButton from '@/components/shared/BackButton';
 
+export const metadata = {
+  title: 'Sayfa Bulunamadı',
+  robots: { index: false, follow: false },
+};
+
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] flex flex-col items-center justify-center px-4">

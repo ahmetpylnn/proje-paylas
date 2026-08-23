@@ -101,7 +101,7 @@ export default function GallerySlider({ images, title }: GallerySliderProps) {
                   i === current ? 'border-[#3B82F6]' : 'border-[#222222] hover:border-[#333333]'
                 }`}
               >
-                <Image src={img} alt={`Küçük resim ${i + 1}`} fill className="object-cover" sizes="64px" />
+                <Image src={img} alt={`${title} proje görseli ${i + 1}`} fill className="object-cover" sizes="64px" />
               </button>
             ))}
           </div>

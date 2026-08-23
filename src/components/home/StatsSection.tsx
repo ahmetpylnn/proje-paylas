@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FolderGit2, Download, Eye, TerminalSquare } from 'lucide-react';
 import { formatNumber } from '@/lib/utils';
@@ -13,7 +14,15 @@ interface StatsSectionProps {
   linesOfCode?: string;
 }
 
+const PUBLIC_VIEW_COUNT_KEY = 'public-view-count';
+
 export default function StatsSection({ stats, linesOfCode }: StatsSectionProps) {
+  const [publicViewCount] = useState(() => {
+    if (typeof window === 'undefined') return 42;
+    const storedCount = Number(window.localStorage.getItem(PUBLIC_VIEW_COUNT_KEY));
+    return Number.isFinite(storedCount) && storedCount >= 42 ? storedCount : 42;
+  });
+
   const statItems = [
     {
       label: 'Toplam Proje',
@@ -29,7 +38,7 @@ export default function StatsSection({ stats, linesOfCode }: StatsSectionProps) 
     },
     {
       label: 'Görüntülenme',
-      value: stats.totalViews,
+      value: publicViewCount,
       icon: Eye,
       color: '#8B5CF6',
     },

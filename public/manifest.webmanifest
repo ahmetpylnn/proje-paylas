@@ -1,0 +1,16 @@
+{
+  "name": "Ahmet Paylan",
+  "short_name": "Ahmet Paylan",
+  "description": "Ahmet Paylan'ın geliştirdiği yazılım projeleri ve geliştirici portföyü.",
+  "start_url": "/",
+  "display": "standalone",
+  "lang": "tr",
+  "theme_color": "#0a0a0a",
+  "background_color": "#0a0a0a",
+  "icons": [{
+    "src": "/icon.svg",
+    "sizes": "any",
+    "type": "image/svg+xml",
+    "purpose": "any maskable"
+  }]
+}

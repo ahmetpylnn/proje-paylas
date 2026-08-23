@@ -6,7 +6,6 @@ import StatsSection from '@/components/home/StatsSection';
 import CTASection from '@/components/home/CTASection';
 import AnnouncementSection from '@/components/home/AnnouncementSection';
 import { safeGetProjects, safeGetDashboardStats, safeGetSiteSettings } from '@/lib/supabase/queries';
-import ClientAnalytics from '@/components/shared/ClientAnalytics';
 
 export const revalidate = 0;
 
@@ -25,7 +24,6 @@ export default async function HomePage() {
 
   return (
     <>
-      <ClientAnalytics type="view" projectId="home" projectTitle="Ana Sayfa" />
       <HeroSection />
       <FeaturedProjects projects={featuredProjects} />
       <CategorySection counts={categoryCounts} />

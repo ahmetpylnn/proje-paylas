@@ -3,26 +3,29 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FolderGit2, Download, Eye, Plus, Star, FileText } from 'lucide-react';
-import { getDashboardStats, getProjects } from '@/lib/supabase/queries';
+import { FolderGit2, Download, Eye, Plus, Star, FileText, Globe, Users } from 'lucide-react';
+import { getDashboardStats, getProjects, getVisitorStats } from '@/lib/supabase/queries';
 import { useWhenAuthed } from '@/hooks/useWhenAuthed';
 import { formatNumber, formatDate } from '@/lib/utils';
 import { toast } from 'sonner';
-import type { Project, DashboardStats as StatsType } from '@/types';
+import type { Project, DashboardStats as StatsType, VisitorStats } from '@/types';
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState<StatsType | null>(null);
   const [recentProjects, setRecentProjects] = useState<Project[]>([]);
+  const [visitorStats, setVisitorStats] = useState<VisitorStats | null>(null);
   const [loading, setLoading] = useState(true);
 
   useWhenAuthed(async () => {
     try {
-      const [statsData, projectsData] = await Promise.all([
+      const [statsData, projectsData, visitorsData] = await Promise.all([
         getDashboardStats({ includeDrafts: true }),
         getProjects({ limitCount: 5 }),
+        getVisitorStats(),
       ]);
       setStats(statsData);
       setRecentProjects(projectsData);
+      setVisitorStats(visitorsData);
     } catch (error) {
       console.error('Error loading dashboard data:', error);
       toast.error('Dashboard verileri yüklenemedi.');
@@ -46,6 +49,8 @@ export default function AdminDashboard() {
     { label: 'Öne Çıkan', value: stats?.featuredProjects || 0, icon: Star, color: 'text-purple-500' },
     { label: 'Toplam Görüntülenme', value: formatNumber(stats?.totalViews || 0), icon: Eye, color: 'text-blue-400' },
     { label: 'Toplam İndirme', value: formatNumber(stats?.totalDownloads || 0), icon: Download, color: 'text-green-400' },
+    { label: 'Toplam Ziyaret', value: formatNumber(visitorStats?.totalVisits || 0), icon: Globe, color: 'text-orange-400' },
+    { label: 'Benzersiz Ziyaretçi', value: formatNumber(visitorStats?.uniqueVisitors || 0), icon: Users, color: 'text-purple-400' },
   ];
 
   return (
@@ -65,7 +70,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         {statCards.map((stat, i) => {
           const Icon = stat.icon;
           return (

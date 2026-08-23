@@ -1,16 +1,17 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Download, Eye, Calendar, Tag, ArrowLeft, ExternalLink, ShieldCheck, FileArchive } from 'lucide-react';
+import { Calendar, Tag, ArrowLeft, ExternalLink, ShieldCheck, FileArchive } from 'lucide-react';
 import { GithubIcon } from '@/components/shared/BrandIcons';
 import ReactMarkdown from 'react-markdown';
 import { getAllSlugs, safeGetProjectBySlug, safeGetProjects } from '@/lib/supabase/queries';
-import { formatDate, formatNumber } from '@/lib/utils';
+import { formatDate } from '@/lib/utils';
 import TechBadge from '@/components/shared/TechBadge';
 import ShareButtons from '@/components/shared/ShareButtons';
 import GallerySlider from '@/components/projects/GallerySlider';
 import ProjectCard from '@/components/projects/ProjectCard';
 import ClientAnalytics from '@/components/shared/ClientAnalytics';
+import TrackedProjectLink from '@/components/projects/TrackedProjectLink';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -127,24 +128,7 @@ export default async function ProjectDetailPage({ params }: Props) {
               {project.shortDescription}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 border-y border-[#222222] py-4">
-              {/* Stats */}
-              <div className="flex items-center gap-6 mr-auto">
-                <div className="flex items-center gap-2 text-[#A1A1AA]">
-                  <Eye className="w-5 h-5 text-[#52525B]" />
-                  <span className="font-medium text-white">{formatNumber(project.viewCount)}</span>
-                  <span className="text-sm">görüntüleme</span>
-                </div>
-                {project.zipFile && (
-                  <div className="flex items-center gap-2 text-[#A1A1AA]">
-                    <Download className="w-5 h-5 text-[#52525B]" />
-                    <span className="font-medium text-white">{formatNumber(project.downloadCount)}</span>
-                    <span className="text-sm">indirme</span>
-                  </div>
-                )}
-              </div>
-
-              {/* Share */}
+            <div className="flex justify-end border-y border-[#222222] py-4">
               <ShareButtons url={projectUrl} title={project.title} />
             </div>
           </header>
@@ -203,36 +187,41 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <h3 className="text-lg font-semibold text-white mb-4">Bağlantılar</h3>
                 <div className="space-y-3">
                   {project.demoUrl && (
-                    <a
+                    <TrackedProjectLink
                       href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      eventType="demo_click"
+                      projectId={project.id}
+                      projectTitle={project.title}
                       className="flex items-center justify-center gap-2 w-full py-3 bg-[#3B82F6] hover:bg-[#2563EB] text-white rounded-lg font-medium transition-colors"
                     >
                       <ExternalLink className="w-4 h-4" />
                       Canlı Demo
-                    </a>
+                    </TrackedProjectLink>
                   )}
                   {project.githubUrl && (
-                    <a
+                    <TrackedProjectLink
                       href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      eventType="github_click"
+                      projectId={project.id}
+                      projectTitle={project.title}
                       className="flex items-center justify-center gap-2 w-full py-3 bg-[#161616] hover:bg-[#1a1a1a] text-white border border-[#333333] hover:border-[#444444] rounded-lg font-medium transition-colors"
                     >
                       <GithubIcon className="w-4 h-4" />
                       Kaynak Kod (GitHub)
-                    </a>
+                    </TrackedProjectLink>
                   )}
                   {project.zipFile && (
-                    <a
+                    <TrackedProjectLink
                       href={project.zipFile}
+                      eventType="download"
+                      projectId={project.id}
+                      projectTitle={project.title}
                       download
                       className="flex items-center justify-center gap-2 w-full py-3 bg-white hover:bg-gray-100 text-black rounded-lg font-medium transition-colors"
                     >
                       <FileArchive className="w-4 h-4" />
                       Dosyaları İndir
-                    </a>
+                    </TrackedProjectLink>
                   )}
                 </div>
               </div>

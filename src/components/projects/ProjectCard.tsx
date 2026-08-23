@@ -4,9 +4,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Eye, Download, Star, Calendar } from 'lucide-react';
+import { Star, Calendar } from 'lucide-react';
 import { GithubIcon } from '@/components/shared/BrandIcons';
-import { cn, formatNumber, formatDate, truncate } from '@/lib/utils';
+import { cn, formatDate, truncate } from '@/lib/utils';
 import TechBadge from '@/components/shared/TechBadge';
 import type { Project } from '@/types';
 
@@ -99,25 +99,6 @@ export default function ProjectCard({ project, index = 0, featured = false }: Pr
               </div>
             )}
 
-            {/* Stats */}
-            <div className="flex items-center gap-4 pt-3 border-t border-[#1a1a1a]">
-              <div className="flex items-center gap-1.5 text-[#52525B] text-xs">
-                <Eye className="w-3.5 h-3.5" />
-                <span>{formatNumber(project.viewCount ?? 0)} görüntüleme</span>
-              </div>
-              {project.zipFile && (
-                <div className="flex items-center gap-1.5 text-[#52525B] text-xs">
-                  <Download className="w-3.5 h-3.5" />
-                  <span>{formatNumber(project.downloadCount ?? 0)} indirme</span>
-                </div>
-              )}
-              {project.githubUrl && (
-                <div className="ml-auto flex items-center gap-1 text-[#A1A1AA] group-hover:text-white transition-colors text-xs">
-                  <GithubIcon className="w-3.5 h-3.5" />
-                  <span>GitHub</span>
-                </div>
-              )}
-            </div>
           </div>
         </article>
       </Link>

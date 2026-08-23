@@ -1,6 +1,6 @@
 export const SITE_NAME = 'ahmetpylnn';
 export const SITE_DESCRIPTION =
-  'Ahmet Paylan tarafından geliştirilen yazılım projeleri, deneysel çalışmalar ve kişisel üretimler.';
+  'ahmetpylnn tarafından geliştirilen yazılım projeleri, deneysel çalışmalar ve kişisel üretimler.';
 
 export const CATEGORIES = [
   { id: 'web', name: 'Web', icon: 'Globe', color: '#0070F3' },

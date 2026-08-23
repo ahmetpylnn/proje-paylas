@@ -210,7 +210,11 @@ export const updateSiteSettings = async (data: Partial<SiteSettings>): Promise<v
   if (data.announcement !== undefined) payload.announcement = data.announcement;
   if (data.linesOfCode !== undefined) payload.lines_of_code = data.linesOfCode;
 
-  const { error } = await supabase.from('settings').upsert({ id: 'main', ...payload });
+  const { error } = await supabase
+    .from('settings')
+    .upsert({ id: 'main', ...payload }, { onConflict: 'id' })
+    .select('id')
+    .single();
   if (error) throw error;
 };
 

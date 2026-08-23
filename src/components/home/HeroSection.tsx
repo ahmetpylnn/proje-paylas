@@ -25,7 +25,7 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-[var(--muted)] text-lg leading-relaxed max-w-2xl mx-auto mb-10"
         >
-          Ahmet Paylan tarafından geliştirilen yazılım projelerini, deneysel çalışmaları ve kişisel projeleri keşfet.
+          ahmetpylnn tarafından geliştirilen yazılım projelerini, deneysel çalışmaları ve kişisel projeleri keşfet.
         </motion.p>
 
         {/* CTA Buttons */}

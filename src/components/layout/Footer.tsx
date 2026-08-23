@@ -26,7 +26,7 @@ export default function Footer() {
               <span className="font-bold text-white text-lg">ahmetpylnn</span>
             </Link>
             <p className="text-[#A1A1AA] text-sm leading-relaxed max-w-xs">
-              Ahmet Paylan&apos;ın yazılım projeleri, deneysel çalışmaları ve kişisel üretimleri.
+              ahmetpylnn&apos;in yazılım projeleri, deneysel çalışmaları ve kişisel üretimleri.
             </p>
           </div>
 

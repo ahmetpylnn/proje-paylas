@@ -8,13 +8,13 @@ import { DEFAULT_DESCRIPTION, DEFAULT_OG_IMAGE, DEFAULT_TITLE, SITE_NAME, SITE_U
 export const metadata: Metadata = {
   title: {
     default: DEFAULT_TITLE,
-    template: '%s | Ahmet Paylan',
+    template: '%s | ahmetpylnn',
   },
   description: DEFAULT_DESCRIPTION,
-  keywords: ['Ahmet Paylan', 'yazılım projeleri', 'geliştirici portföyü', 'açık kaynak'],
-  authors: [{ name: 'Ahmet Paylan' }],
-  creator: 'Ahmet Paylan',
-  publisher: 'Ahmet Paylan',
+  keywords: ['ahmetpylnn', 'yazılım projeleri', 'geliştirici portföyü', 'açık kaynak'],
+  authors: [{ name: 'ahmetpylnn' }],
+  creator: 'ahmetpylnn',
+  publisher: 'ahmetpylnn',
   metadataBase: new URL(SITE_URL),
   alternates: { canonical: SITE_URL },
   category: 'technology',

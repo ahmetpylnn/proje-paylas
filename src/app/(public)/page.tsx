@@ -6,9 +6,19 @@ import StatsSection from '@/components/home/StatsSection';
 import CTASection from '@/components/home/CTASection';
 import AnnouncementSection from '@/components/home/AnnouncementSection';
 import { safeGetProjects, safeGetDashboardStats, safeGetSiteSettings } from '@/lib/supabase/queries';
-import { absoluteUrl, DEFAULT_DESCRIPTION, jsonLd, SITE_NAME } from '@/lib/seo';
+import { absoluteUrl, createMetadata, DEFAULT_DESCRIPTION, DEFAULT_OG_IMAGE, jsonLd, SITE_NAME } from '@/lib/seo';
 
 export const revalidate = 0;
+
+export async function generateMetadata() {
+  const settings = await safeGetSiteSettings();
+  return createMetadata({
+    title: settings?.seoTitle || undefined,
+    description: settings?.seoDescription || DEFAULT_DESCRIPTION,
+    path: '/',
+    image: settings?.ogImage || DEFAULT_OG_IMAGE,
+  });
+}
 
 export default async function HomePage() {
   const [featuredProjects, stats, allProjects, settings] = await Promise.all([

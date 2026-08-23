@@ -90,6 +90,8 @@ export default function AdminSettings() {
         avatarUrl = await uploadAvatarFile(avatarFile);
       }
       await updateSiteSettings({ ...formData, developerAvatar: avatarUrl });
+      setFormData((previous) => ({ ...previous, developerAvatar: avatarUrl }));
+      setAvatarFile(null);
       toast.success('Ayarlar başarıyla kaydedildi.');
     } catch (error) {
       console.error('Settings save failed:', error);

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://ahmetpylnn.vercel.app').replace(/\/$/, '');
-export const SITE_NAME = 'Ahmet Paylan';
-export const DEFAULT_TITLE = 'Ahmet Paylan — Yazılım Projeleri ve Geliştirici Portföyü';
-export const DEFAULT_DESCRIPTION = "Ahmet Paylan'ın geliştirdiği yazılım projelerini, teknolojilerini ve çalışmalarını keşfedin.";
+export const SITE_NAME = 'ahmetpylnn';
+export const DEFAULT_TITLE = 'ahmetpylnn — Yazılım Projeleri ve Geliştirici Portföyü';
+export const DEFAULT_DESCRIPTION = "ahmetpylnn tarafından geliştirilen yazılım projelerini, teknolojilerini ve çalışmalarını keşfedin.";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.svg`;
 
 export function absoluteUrl(path = ''): string {

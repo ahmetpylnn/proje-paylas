@@ -69,6 +69,17 @@
 .light .text-white { color: var(--foreground) !important; }
 .light .text-\[\#A1A1AA\] { color: var(--muted) !important; }
 .light .text-\[\#52525B\] { color: var(--muted-foreground) !important; }
+.light .text-white\/60 { color: color-mix(in srgb, var(--foreground) 60%, transparent) !important; }
+.light .text-white\/40 { color: color-mix(in srgb, var(--foreground) 40%, transparent) !important; }
+.light .placeholder-\[\#52525B\]::placeholder { color: var(--muted-foreground) !important; }
+.light .bg-black\/60 { background-color: rgb(15 23 42 / 0.6) !important; }
+.light .bg-black\/80 { background-color: rgb(15 23 42 / 0.8) !important; }
+.light .bg-white\/10 { background-color: rgb(15 23 42 / 0.1) !important; }
+.light .bg-white\/5 { background-color: rgb(15 23 42 / 0.05) !important; }
+.light .border-white\/20 { border-color: rgb(15 23 42 / 0.2) !important; }
+.light .border-white\/10 { border-color: rgb(15 23 42 / 0.1) !important; }
+.light .hover\:text-white:hover { color: var(--foreground) !important; }
+.light .hover\:bg-\[\#161616\]:hover { background-color: var(--elevated-bg) !important; }
 
 *, *::before, *::after {
   box-sizing: border-box;

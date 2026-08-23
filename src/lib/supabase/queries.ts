@@ -285,6 +285,10 @@ export const getBlogPosts = async (publishedOnly = true): Promise<BlogPost[]> =>
   return data.map(mapBlogDoc);
 };
 
+export async function safeGetBlogPosts(): Promise<BlogPost[]> {
+  try { return await getBlogPosts(true); } catch { return []; }
+}
+
 export const getBlogPostBySlug = async (slug: string, publishedOnly = true): Promise<BlogPost | null> => {
   let query = supabase.from('blog').select('*').eq('slug', slug);
   if (publishedOnly) query = query.eq('published', true);

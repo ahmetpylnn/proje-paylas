@@ -37,7 +37,7 @@ export default function AdminSidebar() {
           <div className="w-8 h-8 bg-[#3B82F6] rounded-lg flex items-center justify-center group-hover:bg-[#2563EB] transition-colors">
             <Code2 className="w-4 h-4 text-white" />
           </div>
-          <span className="font-bold text-lg">ByteHub</span>
+          <span className="font-bold text-lg">ahmetpylnn</span>
         </Link>
 
         <nav className="space-y-1">

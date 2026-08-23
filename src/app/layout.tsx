@@ -1,37 +1,30 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import { AuthProvider } from '@/hooks/useAuth';
 import { Toaster } from 'sonner';
 import ThemeProvider from '@/components/shared/ThemeProvider';
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
-
 export const metadata: Metadata = {
   title: {
-    default: 'ByteHub — Proje Paylaşım Platformu',
-    template: '%s | ByteHub',
+    default: 'ahmetpylnn — Yazılım Projeleri',
+    template: '%s | ahmetpylnn',
   },
-  description: 'Geliştiricilerin kendi yazılım projelerini, web sitelerini, oyunlarını ve uygulamalarını paylaştığı platform.',
-  keywords: ['yazılım', 'proje', 'açık kaynak', 'geliştirici', 'topluluk', 'bytehub'],
-  authors: [{ name: 'ByteHub' }],
-  creator: 'ByteHub',
+  description: 'Ahmet Paylan tarafından geliştirilen yazılım projelerini, deneysel çalışmaları ve kişisel üretimleri keşfedin.',
+  keywords: ['Ahmet Paylan', 'ahmetpylnn', 'yazılım', 'proje', 'açık kaynak', 'geliştirici'],
+  authors: [{ name: 'Ahmet Paylan' }],
+  creator: 'Ahmet Paylan',
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
-    url: process.env.NEXT_PUBLIC_SITE_URL,
-    siteName: 'ByteHub',
-    title: 'ByteHub — Proje Paylaşım Platformu',
-    description: 'Modern geliştirici topluluğunda projelerini keşfet ve paylaş.',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://ahmetpylnn.vercel.app',
+    siteName: 'ahmetpylnn',
+    title: 'ahmetpylnn — Yazılım Projeleri',
+    description: 'Ahmet Paylan tarafından geliştirilen yazılım projelerini keşfedin.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ByteHub — Proje Paylaşım Platformu',
-    description: 'Modern geliştirici topluluğunda projelerini keşfet ve paylaş.',
+    title: 'ahmetpylnn — Yazılım Projeleri',
+    description: 'Ahmet Paylan tarafından geliştirilen yazılım projelerini keşfedin.',
   },
   robots: {
     index: true,
@@ -46,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="tr" className={inter.variable} suppressHydrationWarning>
+    <html lang="tr" suppressHydrationWarning>
       <body className="bg-background text-foreground antialiased transition-colors duration-300">
         <ThemeProvider>
           <AuthProvider>

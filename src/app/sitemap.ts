@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getAllSlugs } from '@/lib/supabase/queries';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bytehub.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ahmetpylnn.vercel.app';
   
   let slugs: string[] = [];
   try {
@@ -42,6 +42,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
     },
   ];
 

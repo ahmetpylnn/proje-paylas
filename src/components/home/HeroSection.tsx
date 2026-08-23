@@ -2,35 +2,20 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Code2, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 grid-pattern" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/50 to-[#0A0A0A]" />
+    <section className="relative min-h-[68vh] flex items-center justify-center overflow-hidden border-b border-[var(--card-border)]">
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-[#3B82F6]/10 border border-[#3B82F6]/20 rounded-full text-[#3B82F6] text-sm font-medium mb-8"
-        >
-          <Sparkles className="w-4 h-4" />
-          ByteHub Geliştirici Topluluğu
-        </motion.div>
-
-        {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold leading-tight mb-6 text-white"
+          className="text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-6 text-[var(--foreground)]"
         >
-          Projelerini paylaş. <span className="text-[#3B82F6]">Üretimini göster.</span>
+          Projelerimi keşfet.
         </motion.h1>
 
         {/* Subtitle */}
@@ -38,9 +23,9 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-[#A1A1AA] text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10"
+          className="text-[var(--muted)] text-lg leading-relaxed max-w-2xl mx-auto mb-10"
         >
-          Geliştirdiğin projeleri paylaş, yeni projeler keşfet ve diğer geliştiricilerin çalışmalarını incele.
+          Ahmet Paylan tarafından geliştirilen yazılım projelerini, deneysel çalışmaları ve kişisel projeleri keşfet.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -52,30 +37,19 @@ export default function HeroSection() {
         >
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#3B82F6] hover:bg-[#2563EB] text-white font-semibold rounded-xl transition-all duration-200"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#3B82F6] hover:bg-[#2563EB] text-white font-semibold rounded-md transition-colors"
           >
             Projeleri Keşfet
             <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
-            href="/submit"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#111111] hover:bg-[#161616] text-white font-semibold rounded-xl border border-[#222222] hover:border-[#333333] transition-all duration-200"
+            href="/about"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--card-bg)] hover:bg-[var(--elevated-bg)] text-[var(--foreground)] font-semibold rounded-md border border-[var(--card-border)] transition-colors"
           >
-            <Code2 className="w-4 h-4" />
-            Proje Paylaş
+            Hakkımda
           </Link>
         </motion.div>
 
-        {/* Scroll hint */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        >
-          <div className="w-px h-12 bg-gradient-to-b from-transparent to-[#3B82F6]/50" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] animate-bounce" />
-        </motion.div>
       </div>
     </section>
   );

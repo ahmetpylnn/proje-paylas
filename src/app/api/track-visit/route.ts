@@ -5,7 +5,7 @@ import { getSupabaseServer } from '@/lib/supabase/server';
 // Hash IP with daily salt for privacy (GDPR compliant - no raw IP stored)
 function hashIp(ip: string): string {
   const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
-  return createHash('sha256').update(ip + today + 'bytehub-salt').digest('hex').slice(0, 16);
+  return createHash('sha256').update(ip + today + 'ahmetpylnn-visit-salt').digest('hex').slice(0, 16);
 }
 
 function getClientIp(req: NextRequest): string {

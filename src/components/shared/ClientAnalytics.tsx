@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { recordAnalyticsEvent } from '@/lib/supabase/queries';
+import { incrementViewCount, recordAnalyticsEvent } from '@/lib/supabase/queries';
 
 export default function ClientAnalytics({
   type,
@@ -21,11 +21,10 @@ export default function ClientAnalytics({
     recorded.current = true;
 
     // Record analytics event (project views/downloads)
-    recordAnalyticsEvent({
-      type,
-      projectId: projectId || 'home',
-      projectTitle: projectTitle || 'Ana Sayfa',
-    }).catch(() => {});
+    if (projectId) {
+      recordAnalyticsEvent({ type, projectId, projectTitle }).catch(() => {});
+      if (type === 'view') incrementViewCount(projectId).catch(() => {});
+    }
 
     // Track visitor via server-side API (IP hashed server-side, GDPR compliant)
     fetch('/api/track-visit', {

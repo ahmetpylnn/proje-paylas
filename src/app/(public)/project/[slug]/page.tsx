@@ -59,7 +59,7 @@ export default async function ProjectDetailPage({ params }: Props) {
     .filter((p) => p.id !== project.id)
     .slice(0, 3);
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bytehub.app';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ahmetpylnn.vercel.app';
   const projectUrl = `${siteUrl}/project/${project.slug}`;
 
   // JSON-LD Structured Data

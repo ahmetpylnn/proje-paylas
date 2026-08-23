@@ -61,6 +61,15 @@
   --badge-bg: #F1F5F9;
 }
 
+/* Legacy component classes retain the same hierarchy in the light theme. */
+.light .bg-\[\#0A0A0A\] { background-color: var(--background) !important; }
+.light .bg-\[\#111111\] { background-color: var(--card-bg) !important; }
+.light .bg-\[\#161616\], .light .bg-\[\#1a1a1a\] { background-color: var(--elevated-bg) !important; }
+.light .border-\[\#222222\], .light .border-\[\#1a1a1a\], .light .border-\[\#333333\] { border-color: var(--card-border) !important; }
+.light .text-white { color: var(--foreground) !important; }
+.light .text-\[\#A1A1AA\] { color: var(--muted) !important; }
+.light .text-\[\#52525B\] { color: var(--muted-foreground) !important; }
+
 *, *::before, *::after {
   box-sizing: border-box;
 }

@@ -44,7 +44,7 @@ export default function Navbar() {
               <Code2 className="w-4 h-4 text-white" />
             </div>
             <span className="font-bold text-[var(--foreground)] text-lg tracking-tight">
-              ByteHub
+              ahmetpylnn
             </span>
           </Link>
 

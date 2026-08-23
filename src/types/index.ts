@@ -86,9 +86,9 @@ export interface TechItem {
 
 export interface AnalyticsEvent {
   id: string;
-  type: 'view' | 'download' | 'github_click' | 'demo_click';
-  projectId: string;
-  projectTitle: string;
+  type: 'view' | 'download' | 'github_click' | 'demo_click' | 'visit';
+  projectId?: string;
+  projectTitle?: string;
   timestamp: string;
   userAgent?: string;
 }

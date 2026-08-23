@@ -23,10 +23,10 @@ export default function Footer() {
               <div className="w-8 h-8 bg-[#3B82F6] rounded-lg flex items-center justify-center group-hover:bg-[#2563EB] transition-colors">
                 <Code2 className="w-4 h-4 text-white" />
               </div>
-              <span className="font-bold text-white text-lg">ByteHub</span>
+              <span className="font-bold text-white text-lg">ahmetpylnn</span>
             </Link>
             <p className="text-[#A1A1AA] text-sm leading-relaxed max-w-xs">
-              Modern proje paylaşım platformu. Geliştiriciler için, geliştiriciler tarafından.
+              Ahmet Paylan&apos;ın yazılım projeleri, deneysel çalışmaları ve kişisel üretimleri.
             </p>
           </div>
 
@@ -70,7 +70,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-6 border-t border-[#1a1a1a] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[#52525B] text-sm">
-            © {year} ByteHub. Tüm hakları saklıdır.
+            © {year} ahmetpylnn. Tüm hakları saklıdır.
           </p>
           <p className="text-[#52525B] text-sm flex items-center gap-1">
             Sevgiyle yapıldı <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" />

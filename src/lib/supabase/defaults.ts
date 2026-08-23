@@ -23,7 +23,7 @@ export const DEFAULT_SITE_SETTINGS: Omit<SiteSettings, 'id' | 'updatedAt'> = {
   categories: [],
   heroTitle: 'Yazılım Projelerini Keşfet',
   heroSubtitle: 'Modern açık kaynak ve kişisel projeler',
-  seoTitle: 'ByteHub — Yazılım Projeleri',
+  seoTitle: 'ahmetpylnn — Yazılım Projeleri',
   seoDescription: 'Modern yazılım projelerini keşfet, incele ve indir.',
   ogImage: '',
   announcement: '🚀 Yenilikler — Yeni projeler ve güncellemeler burada!',

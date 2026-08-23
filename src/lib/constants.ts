@@ -1,8 +1,9 @@
-export const SITE_NAME = 'ByteHub';
-export const SITE_DESCRIPTION = 'Modern proje paylaşım platformu. Geliştiriciler için, geliştiriciler tarafından.';
+export const SITE_NAME = 'ahmetpylnn';
+export const SITE_DESCRIPTION =
+  'Ahmet Paylan tarafından geliştirilen yazılım projeleri, deneysel çalışmalar ve kişisel üretimler.';
 
 export const CATEGORIES = [
-  { id: 'web', name: 'Web', icon: 'Globe', color: '#3B82F6' },
+  { id: 'web', name: 'Web', icon: 'Globe', color: '#0070F3' },
   { id: 'mobil', name: 'Mobil', icon: 'Smartphone', color: '#8B5CF6' },
   { id: 'oyun', name: 'Oyun', icon: 'Gamepad2', color: '#EC4899' },
   { id: 'ai', name: 'AI', icon: 'Cpu', color: '#10B981' },
@@ -31,15 +32,17 @@ export const SORT_OPTIONS = [
 ] as const;
 
 export const NAV_LINKS = [
-  { href: '/projects', label: 'Keşfet' },
-  { href: '/projects?sort=most-viewed', label: 'Projeler' },
-  { href: '/developers', label: 'Geliştiriciler' },
-  { href: '/about', label: 'Hakkında' },
+  { href: '/', label: 'Ana Sayfa' },
+  { href: '/projects', label: 'Projeler' },
+  { href: '/about', label: 'Hakkımda' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'İletişim' },
 ] as const;
 
 export const ADMIN_NAV_LINKS = [
   { href: '/admin', label: 'Dashboard', icon: 'LayoutDashboard' },
   { href: '/admin/projects', label: 'Projeler', icon: 'FolderOpen' },
+  { href: '/admin/blog', label: 'Blog', icon: 'FileText' },
   { href: '/admin/media', label: 'Medya', icon: 'Image' },
   { href: '/admin/messages', label: 'Mesajlar', icon: 'Mail' },
   { href: '/admin/analytics', label: 'Analitik', icon: 'BarChart2' },
@@ -60,6 +63,6 @@ export const ACCEPTED_ZIP_TYPES = {
   'application/x-7z-compressed': ['.7z'],
 };
 
-export const MAX_IMAGE_SIZE = 5 * 1024 * 1024; // 5MB
-export const MAX_ZIP_SIZE = 500 * 1024 * 1024; // 500MB
+export const MAX_IMAGE_SIZE = 5 * 1024 * 1024;
+export const MAX_ZIP_SIZE = 500 * 1024 * 1024;
 export const MAX_GALLERY_IMAGES = 10;

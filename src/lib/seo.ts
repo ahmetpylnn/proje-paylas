@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://ahmetpylnn.vercel.app').replace(/\/$/, '');
+const PRODUCTION_SITE_URL = 'https://ahmetpylnn.vercel.app';
+const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '');
+const isProductionSiteUrl = configuredSiteUrl === PRODUCTION_SITE_URL;
+export const SITE_URL = isProductionSiteUrl ? configuredSiteUrl : PRODUCTION_SITE_URL;
 export const SITE_NAME = 'ahmetpylnn';
 export const DEFAULT_TITLE = 'ahmetpylnn — Yazılım Projeleri ve Geliştirici Portföyü';
 export const DEFAULT_DESCRIPTION = "ahmetpylnn tarafından geliştirilen yazılım projelerini, teknolojilerini ve çalışmalarını keşfedin.";

@@ -66,7 +66,7 @@ export default function RootLayout({
               theme="system"
               position="bottom-right"
               toastOptions={{
-                className: 'dark:bg-[#111111] dark:border-[#222222] dark:text-white bg-white border-gray-200 text-gray-900',
+                className: 'dark:bg-bg-card dark:border-border dark:text-text-primary bg-white border-gray-200 text-gray-900',
               }}
             />
           </AuthProvider>

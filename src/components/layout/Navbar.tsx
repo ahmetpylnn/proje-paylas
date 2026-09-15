@@ -41,7 +41,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className="w-8 h-8 bg-[#3B82F6] rounded-lg flex items-center justify-center group-hover:bg-[#2563EB] transition-colors">
-              <Code2 className="w-4 h-4 text-white" />
+              <Code2 className="w-4 h-4 text-text-primary" />
             </div>
             <span className="font-bold text-[var(--foreground)] text-lg tracking-tight">
               ahmetpylnn
@@ -81,7 +81,7 @@ export default function Navbar() {
             )}
             <Link
               href="/login"
-              className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white bg-[#3B82F6] hover:bg-[#2563EB] rounded-lg transition-all duration-200"
+              className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-text-primary bg-[#3B82F6] hover:bg-[#2563EB] rounded-lg transition-all duration-200"
             >
               Giriş
             </Link>
@@ -136,7 +136,7 @@ export default function Navbar() {
               ))}
               <Link
                 href="/login"
-                className="block px-4 py-2.5 rounded-lg text-sm font-medium text-white bg-[#3B82F6] hover:bg-[#2563EB] transition-colors mt-2"
+                className="block px-4 py-2.5 rounded-lg text-sm font-medium text-text-primary bg-[#3B82F6] hover:bg-[#2563EB] transition-colors mt-2"
               >
                 Giriş Yap
               </Link>

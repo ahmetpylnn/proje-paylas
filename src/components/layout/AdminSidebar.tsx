@@ -31,11 +31,11 @@ export default function AdminSidebar() {
   };
 
   const SidebarContent = () => (
-    <div className="flex flex-col h-full bg-[#111111] border-r border-[#222222] text-white w-64">
+    <div className="flex flex-col h-full bg-bg-card border-r border-border text-text-primary w-64">
       <div className="p-6">
         <Link href="/" className="flex items-center gap-2 group mb-8">
           <div className="w-8 h-8 bg-[#3B82F6] rounded-lg flex items-center justify-center group-hover:bg-[#2563EB] transition-colors">
-            <Code2 className="w-4 h-4 text-white" />
+            <Code2 className="w-4 h-4 text-text-primary" />
           </div>
           <span className="font-bold text-lg">ahmetpylnn</span>
         </Link>
@@ -53,8 +53,8 @@ export default function AdminSidebar() {
                 className={cn(
                   'flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors',
                   isActive
-                    ? 'bg-[#3B82F6] text-white'
-                    : 'text-[#A1A1AA] hover:bg-[#161616] hover:text-white'
+                    ? 'bg-[#3B82F6] text-text-primary'
+                    : 'text-text-secondary hover:bg-bg-elevated hover:text-text-primary'
                 )}
               >
                 {Icon && <Icon className="w-5 h-5" />}
@@ -68,7 +68,7 @@ export default function AdminSidebar() {
       <div className="mt-auto p-6 space-y-2">
         <Link
           href="/"
-          className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-[#A1A1AA] hover:bg-[#161616] hover:text-white transition-colors"
+          className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-text-secondary hover:bg-bg-elevated hover:text-text-primary transition-colors"
         >
           <Home className="w-5 h-5" />
           Siteye Dön
@@ -87,16 +87,16 @@ export default function AdminSidebar() {
   return (
     <>
       {/* Mobile Header */}
-      <div className="lg:hidden flex items-center justify-between p-4 bg-[#111111] border-b border-[#222222]">
+      <div className="lg:hidden flex items-center justify-between p-4 bg-bg-card border-b border-border">
         <Link href="/" className="flex items-center gap-2">
           <div className="w-8 h-8 bg-[#3B82F6] rounded-lg flex items-center justify-center">
-            <Code2 className="w-4 h-4 text-white" />
+            <Code2 className="w-4 h-4 text-text-primary" />
           </div>
-          <span className="font-bold text-white text-lg">Admin</span>
+          <span className="font-bold text-text-primary text-lg">Admin</span>
         </Link>
         <button
           onClick={() => setIsOpen(true)}
-          className="p-2 text-[#A1A1AA] hover:text-white transition-colors"
+          className="p-2 text-text-secondary hover:text-text-primary transition-colors"
         >
           <Menu className="w-6 h-6" />
         </button>
@@ -110,7 +110,7 @@ export default function AdminSidebar() {
             <SidebarContent />
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-[-40px] p-2 text-white bg-[#111111] rounded-r-lg"
+              className="absolute top-4 right-[-40px] p-2 text-text-primary bg-bg-card rounded-r-lg"
             >
               <X className="w-5 h-5" />
             </button>

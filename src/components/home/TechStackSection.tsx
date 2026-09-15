@@ -39,7 +39,7 @@ export default function TechStackSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-3xl font-bold text-white"
+          className="text-3xl font-bold text-text-primary"
         >
           Kullandığım Teknolojiler
         </motion.h2>
@@ -51,10 +51,10 @@ export default function TechStackSection() {
           {doubled.map((tech, i) => (
             <div
               key={i}
-              className="flex items-center gap-2 px-4 py-2 bg-[#111111] border border-[#222222] rounded-lg flex-shrink-0"
+              className="flex items-center gap-2 px-4 py-2 bg-bg-card border border-border rounded-lg flex-shrink-0"
             >
               <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: tech.color }} />
-              <span className="text-[#A1A1AA] text-sm font-medium">{tech.name}</span>
+              <span className="text-text-secondary text-sm font-medium">{tech.name}</span>
             </div>
           ))}
         </div>
@@ -66,10 +66,10 @@ export default function TechStackSection() {
           {[...doubled].reverse().map((tech, i) => (
             <div
               key={i}
-              className="flex items-center gap-2 px-4 py-2 bg-[#111111] border border-[#222222] rounded-lg flex-shrink-0"
+              className="flex items-center gap-2 px-4 py-2 bg-bg-card border border-border rounded-lg flex-shrink-0"
             >
               <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: tech.color }} />
-              <span className="text-[#A1A1AA] text-sm font-medium">{tech.name}</span>
+              <span className="text-text-secondary text-sm font-medium">{tech.name}</span>
             </div>
           ))}
         </div>

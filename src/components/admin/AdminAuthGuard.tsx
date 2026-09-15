@@ -20,7 +20,7 @@ export default function AdminAuthGuard({ children }: { children: React.ReactNode
   // Wait for the Supabase session check.
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="w-8 h-8 border-2 border-[#3B82F6]/30 border-t-[#3B82F6] rounded-full animate-spin" />
       </div>
     );

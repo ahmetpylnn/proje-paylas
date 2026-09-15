@@ -9,7 +9,7 @@ interface TechBadgeProps {
 
 const techColors: Record<string, string> = {
   'React': 'text-[#61DAFB] bg-[#61DAFB]/10 border-[#61DAFB]/20',
-  'Next.js': 'text-white bg-white/10 border-white/20',
+  'Next.js': 'text-text-primary bg-white/10 border-white/20',
   'Vue.js': 'text-[#4FC08D] bg-[#4FC08D]/10 border-[#4FC08D]/20',
   'Angular': 'text-[#DD0031] bg-[#DD0031]/10 border-[#DD0031]/20',
   'TypeScript': 'text-[#3178C6] bg-[#3178C6]/10 border-[#3178C6]/20',
@@ -31,7 +31,7 @@ const sizeClasses = {
 };
 
 export default function TechBadge({ name, size = 'md', className }: TechBadgeProps) {
-  const colorClass = techColors[name] ?? 'text-[#A1A1AA] bg-white/5 border-white/10';
+  const colorClass = techColors[name] ?? 'text-text-secondary bg-white/5 border-white/10';
 
   return (
     <span

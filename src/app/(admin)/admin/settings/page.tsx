@@ -107,42 +107,42 @@ export default function AdminSettings() {
     opts?: { type?: string; placeholder?: string }
   ) => (
     <div>
-      <label className="block text-sm font-medium text-[#A1A1AA] mb-1">{label}</label>
+      <label className="block text-sm font-medium text-text-secondary mb-1">{label}</label>
       <input
         type={opts?.type ?? 'text'}
         value={formData[key]}
         onChange={(e) => setFormData(prev => ({ ...prev, [key]: e.target.value }))}
         placeholder={opts?.placeholder}
-        className="w-full bg-[#161616] border border-[#333333] rounded-lg px-4 py-2 text-white focus:outline-none focus:border-[#3B82F6]"
+        className="w-full bg-bg-elevated border border-border-subtle rounded-lg px-4 py-2 text-text-primary focus:outline-none focus:border-[#3B82F6]"
       />
     </div>
   );
 
-  if (loading) return <div className="p-12 text-center text-[#A1A1AA]">Yükleniyor...</div>;
+  if (loading) return <div className="p-12 text-center text-text-secondary">Yükleniyor...</div>;
 
   return (
     <div className="space-y-6 max-w-4xl">
       <div>
-        <h1 className="text-3xl font-bold text-white mb-1">Site Ayarları</h1>
-        <p className="text-[#A1A1AA] text-sm">Genel site bilgilerini ve profilinizi güncelleyin.</p>
+        <h1 className="text-3xl font-bold text-text-primary mb-1">Site Ayarları</h1>
+        <p className="text-text-secondary text-sm">Genel site bilgilerini ve profilinizi güncelleyin.</p>
       </div>
 
       <form onSubmit={handleSave} className="space-y-8">
 
         {/* ── Profil ── */}
-        <div className="bg-[#111111] border border-[#222222] rounded-xl p-6 space-y-6">
-          <h2 className="text-lg font-semibold text-white border-b border-[#222222] pb-2 flex items-center gap-2">
+        <div className="bg-bg-card border border-border rounded-xl p-6 space-y-6">
+          <h2 className="text-lg font-semibold text-text-primary border-b border-border pb-2 flex items-center gap-2">
             <User className="w-5 h-5 text-[#3B82F6]" /> Profil Bilgileri
           </h2>
 
           <div className="flex flex-col md:flex-row gap-8">
             {/* Avatar */}
             <div className="flex-shrink-0">
-              <label className="block text-sm font-medium text-[#A1A1AA] mb-2">Profil Fotoğrafı</label>
+              <label className="block text-sm font-medium text-text-secondary mb-2">Profil Fotoğrafı</label>
               <div
                 {...getRootProps()}
                 className={`w-32 h-32 rounded-full border-2 border-dashed flex flex-col items-center justify-center cursor-pointer transition-colors overflow-hidden ${
-                  isDragActive ? 'border-[#3B82F6] bg-[#3B82F6]/10' : 'border-[#333333] hover:border-[#444444] bg-[#161616]'
+                  isDragActive ? 'border-[#3B82F6] bg-[#3B82F6]/10' : 'border-border-subtle hover:border-[#444444] bg-bg-elevated'
                 }`}
               >
                 <input {...getInputProps()} />
@@ -151,7 +151,7 @@ export default function AdminSettings() {
                 ) : formData.developerAvatar ? (
                   <img src={formData.developerAvatar} alt="Avatar" className="w-full h-full object-cover" />
                 ) : (
-                  <ImageIcon className="w-8 h-8 text-[#52525B]" />
+                  <ImageIcon className="w-8 h-8 text-text-muted" />
                 )}
               </div>
             </div>
@@ -162,12 +162,12 @@ export default function AdminSettings() {
                 {field('Unvan', 'developerTitle', { placeholder: 'Full Stack Developer' })}
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#A1A1AA] mb-1">Biyografi (Hakkımda)</label>
+                <label className="block text-sm font-medium text-text-secondary mb-1">Biyografi (Hakkımda)</label>
                 <textarea
                   rows={4}
                   value={formData.developerBio}
                   onChange={(e) => setFormData(prev => ({ ...prev, developerBio: e.target.value }))}
-                  className="w-full bg-[#161616] border border-[#333333] rounded-lg px-4 py-2 text-white focus:outline-none focus:border-[#3B82F6] resize-none"
+                  className="w-full bg-bg-elevated border border-border-subtle rounded-lg px-4 py-2 text-text-primary focus:outline-none focus:border-[#3B82F6] resize-none"
                 />
               </div>
             </div>
@@ -175,70 +175,70 @@ export default function AdminSettings() {
         </div>
 
         {/* ── Sosyal Medya ── */}
-        <div className="bg-[#111111] border border-[#222222] rounded-xl p-6 space-y-6">
-          <h2 className="text-lg font-semibold text-white border-b border-[#222222] pb-2 flex items-center gap-2">
+        <div className="bg-bg-card border border-border rounded-xl p-6 space-y-6">
+          <h2 className="text-lg font-semibold text-text-primary border-b border-border pb-2 flex items-center gap-2">
             <LinkIcon className="w-5 h-5 text-[#3B82F6]" /> Sosyal Medya & İletişim
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-[#A1A1AA] mb-1 flex items-center gap-2">
+              <label className="block text-sm font-medium text-text-secondary mb-1 flex items-center gap-2">
                 <GithubIcon className="w-4 h-4" /> GitHub URL
               </label>
               <input type="url" value={formData.githubUrl}
                 onChange={(e) => setFormData(prev => ({ ...prev, githubUrl: e.target.value }))}
-                className="w-full bg-[#161616] border border-[#333333] rounded-lg px-4 py-2 text-white focus:outline-none focus:border-[#3B82F6]" />
+                className="w-full bg-bg-elevated border border-border-subtle rounded-lg px-4 py-2 text-text-primary focus:outline-none focus:border-[#3B82F6]" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#A1A1AA] mb-1 flex items-center gap-2">
+              <label className="block text-sm font-medium text-text-secondary mb-1 flex items-center gap-2">
                 <LinkedinIcon className="w-4 h-4" /> LinkedIn URL
               </label>
               <input type="url" value={formData.linkedinUrl}
                 onChange={(e) => setFormData(prev => ({ ...prev, linkedinUrl: e.target.value }))}
-                className="w-full bg-[#161616] border border-[#333333] rounded-lg px-4 py-2 text-white focus:outline-none focus:border-[#3B82F6]" />
+                className="w-full bg-bg-elevated border border-border-subtle rounded-lg px-4 py-2 text-text-primary focus:outline-none focus:border-[#3B82F6]" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#A1A1AA] mb-1 flex items-center gap-2">
+              <label className="block text-sm font-medium text-text-secondary mb-1 flex items-center gap-2">
                 <TwitterIcon className="w-4 h-4" /> Twitter URL
               </label>
               <input type="url" value={formData.twitterUrl}
                 onChange={(e) => setFormData(prev => ({ ...prev, twitterUrl: e.target.value }))}
-                className="w-full bg-[#161616] border border-[#333333] rounded-lg px-4 py-2 text-white focus:outline-none focus:border-[#3B82F6]" />
+                className="w-full bg-bg-elevated border border-border-subtle rounded-lg px-4 py-2 text-text-primary focus:outline-none focus:border-[#3B82F6]" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#A1A1AA] mb-1 flex items-center gap-2">
+              <label className="block text-sm font-medium text-text-secondary mb-1 flex items-center gap-2">
                 <Mail className="w-4 h-4" /> E-posta Adresi
               </label>
               <input type="email" value={formData.email}
                 onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                className="w-full bg-[#161616] border border-[#333333] rounded-lg px-4 py-2 text-white focus:outline-none focus:border-[#3B82F6]" />
+                className="w-full bg-bg-elevated border border-border-subtle rounded-lg px-4 py-2 text-text-primary focus:outline-none focus:border-[#3B82F6]" />
             </div>
           </div>
         </div>
 
         {/* ── SEO ── */}
-        <div className="bg-[#111111] border border-[#222222] rounded-xl p-6 space-y-6">
-          <h2 className="text-lg font-semibold text-white border-b border-[#222222] pb-2 flex items-center gap-2">
+        <div className="bg-bg-card border border-border rounded-xl p-6 space-y-6">
+          <h2 className="text-lg font-semibold text-text-primary border-b border-border pb-2 flex items-center gap-2">
             <Globe className="w-5 h-5 text-[#3B82F6]" /> SEO & Meta
           </h2>
           <div className="space-y-4">
             {field('Site SEO Başlığı', 'seoTitle')}
             <div>
-              <label className="block text-sm font-medium text-[#A1A1AA] mb-1">Site SEO Açıklaması</label>
+              <label className="block text-sm font-medium text-text-secondary mb-1">Site SEO Açıklaması</label>
               <textarea rows={2} value={formData.seoDescription}
                 onChange={(e) => setFormData(prev => ({ ...prev, seoDescription: e.target.value }))}
-                className="w-full bg-[#161616] border border-[#333333] rounded-lg px-4 py-2 text-white focus:outline-none focus:border-[#3B82F6] resize-none" />
+                className="w-full bg-bg-elevated border border-border-subtle rounded-lg px-4 py-2 text-text-primary focus:outline-none focus:border-[#3B82F6] resize-none" />
             </div>
           </div>
         </div>
 
         {/* ── İstatistikler ── */}
-        <div className="bg-[#111111] border border-[#222222] rounded-xl p-6 space-y-6">
-          <h2 className="text-lg font-semibold text-white border-b border-[#222222] pb-2 flex items-center gap-2">
+        <div className="bg-bg-card border border-border rounded-xl p-6 space-y-6">
+          <h2 className="text-lg font-semibold text-text-primary border-b border-border pb-2 flex items-center gap-2">
             <BarChart2 className="w-5 h-5 text-[#3B82F6]" /> Anasayfa İstatistikleri
           </h2>
           <div>
-            <label className="block text-sm font-medium text-[#A1A1AA] mb-1">Satır Kod</label>
-            <p className="text-xs text-[#52525B] mb-2">
+            <label className="block text-sm font-medium text-text-secondary mb-1">Satır Kod</label>
+            <p className="text-xs text-text-muted mb-2">
               Toplam proje, indirme ve görüntülenme sayıları veritabanından otomatik gelir.
               Sadece &quot;Satır Kod&quot; kartını buradan ayarlayabilirsiniz (örn: 50K+, 120K+).
               Boş bırakırsanız bu kart gösterilmez.
@@ -248,19 +248,19 @@ export default function AdminSettings() {
               value={formData.linesOfCode}
               onChange={(e) => setFormData(prev => ({ ...prev, linesOfCode: e.target.value }))}
               placeholder="100K+"
-              className="w-full bg-[#161616] border border-[#333333] rounded-lg px-4 py-2 text-white focus:outline-none focus:border-[#3B82F6]"
+              className="w-full bg-bg-elevated border border-border-subtle rounded-lg px-4 py-2 text-text-primary focus:outline-none focus:border-[#3B82F6]"
             />
           </div>
         </div>
 
         {/* ── Duyuru ── */}
-        <div className="bg-[#111111] border border-[#222222] rounded-xl p-6 space-y-6">
-          <h2 className="text-lg font-semibold text-white border-b border-[#222222] pb-2 flex items-center gap-2">
+        <div className="bg-bg-card border border-border rounded-xl p-6 space-y-6">
+          <h2 className="text-lg font-semibold text-text-primary border-b border-border pb-2 flex items-center gap-2">
             <Megaphone className="w-5 h-5 text-[#3B82F6]" /> Duyuru / Yenilikler
           </h2>
           <div>
-            <label className="block text-sm font-medium text-[#A1A1AA] mb-1">Anasayfa Duyuru Metni</label>
-            <p className="text-xs text-[#52525B] mb-2">
+            <label className="block text-sm font-medium text-text-secondary mb-1">Anasayfa Duyuru Metni</label>
+            <p className="text-xs text-text-muted mb-2">
               Anasayfada &quot;İletişime Geç&quot; kutusunun yanında gösterilir. Boş bırakırsanız görünmez.
             </p>
             <textarea
@@ -268,7 +268,7 @@ export default function AdminSettings() {
               value={formData.announcement}
               onChange={(e) => setFormData(prev => ({ ...prev, announcement: e.target.value }))}
               placeholder="🚀 Yenilikler — Yeni projeler ve güncellemeler burada!"
-              className="w-full bg-[#161616] border border-[#333333] rounded-lg px-4 py-2 text-white focus:outline-none focus:border-[#3B82F6] resize-none"
+              className="w-full bg-bg-elevated border border-border-subtle rounded-lg px-4 py-2 text-text-primary focus:outline-none focus:border-[#3B82F6] resize-none"
             />
           </div>
         </div>
@@ -278,7 +278,7 @@ export default function AdminSettings() {
           <button
             type="submit"
             disabled={saving || uploading}
-            className="flex items-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] disabled:opacity-50 text-white px-8 py-3 rounded-lg font-medium transition-colors"
+            className="flex items-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] disabled:opacity-50 text-text-primary px-8 py-3 rounded-lg font-medium transition-colors"
           >
             {saving || uploading ? (
               <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />

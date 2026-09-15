@@ -10,6 +10,6 @@ export default function EditBlogPage() {
   const { id } = useParams<{ id: string }>();
   const [post, setPost] = useState<BlogPost | null>(null);
   useEffect(() => { getBlogPostById(id).then(setPost); }, [id]);
-  if (!post) return <p className="p-8 text-[#A1A1AA]">Yükleniyor…</p>;
-  return <div><h1 className="mb-6 text-3xl font-bold text-white">Yazıyı düzenle</h1><BlogEditor post={post} /></div>;
+  if (!post) return <p className="p-8 text-text-secondary">Yükleniyor…</p>;
+  return <div><h1 className="mb-6 text-3xl font-bold text-text-primary">Yazıyı düzenle</h1><BlogEditor post={post} /></div>;
 }

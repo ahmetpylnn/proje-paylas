@@ -44,7 +44,7 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-[#A1A1AA] text-sm mr-1">Paylaş:</span>
+      <span className="text-text-secondary text-sm mr-1">Paylaş:</span>
       {shareLinks.map(({ label, icon: Icon, href, color }) => (
         <a
           key={label}
@@ -52,7 +52,7 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`${label}'da paylaş`}
-          className={`w-9 h-9 rounded-lg bg-[#111111] border border-[#222222] flex items-center justify-center text-[#A1A1AA] transition-all duration-200 ${color}`}
+          className={`w-9 h-9 rounded-lg bg-bg-card border border-border flex items-center justify-center text-text-secondary transition-all duration-200 ${color}`}
         >
           <Icon className="w-4 h-4" />
         </a>
@@ -60,7 +60,7 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
       <button
         onClick={handleCopy}
         aria-label="Bağlantıyı kopyala"
-        className="w-9 h-9 rounded-lg bg-[#111111] border border-[#222222] flex items-center justify-center text-[#A1A1AA] hover:text-white hover:border-[#333333] transition-all duration-200"
+        className="w-9 h-9 rounded-lg bg-bg-card border border-border flex items-center justify-center text-text-secondary hover:text-text-primary hover:border-border-subtle transition-all duration-200"
       >
         {copied ? <Check className="w-4 h-4 text-green-400" /> : <Link2 className="w-4 h-4" />}
       </button>

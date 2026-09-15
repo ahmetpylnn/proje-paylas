@@ -72,12 +72,12 @@ export default function AdminProjectsList() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-1">Projeler</h1>
-          <p className="text-[#A1A1AA] text-sm">Portföyünüzdeki tüm projeleri yönetin.</p>
+          <h1 className="text-3xl font-bold text-text-primary mb-1">Projeler</h1>
+          <p className="text-text-secondary text-sm">Portföyünüzdeki tüm projeleri yönetin.</p>
         </div>
         <Link
           href="/admin/projects/new"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-[#3B82F6] hover:bg-[#2563EB] text-white font-medium rounded-lg transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-[#3B82F6] hover:bg-[#2563EB] text-text-primary font-medium rounded-lg transition-colors"
         >
           <Plus className="w-4 h-4" />
           Yeni Proje
@@ -85,27 +85,27 @@ export default function AdminProjectsList() {
       </div>
 
       {/* Toolbar */}
-      <div className="flex flex-col sm:flex-row gap-4 bg-[#111111] p-4 rounded-xl border border-[#222222]">
+      <div className="flex flex-col sm:flex-row gap-4 bg-bg-card p-4 rounded-xl border border-border">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#52525B]" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Proje ara..."
-            className="w-full bg-[#161616] border border-[#333333] text-white rounded-lg pl-9 pr-4 py-2 text-sm focus:outline-none focus:border-[#3B82F6] transition-colors"
+            className="w-full bg-bg-elevated border border-border-subtle text-text-primary rounded-lg pl-9 pr-4 py-2 text-sm focus:outline-none focus:border-[#3B82F6] transition-colors"
           />
         </div>
       </div>
 
       {/* Table/List */}
-      <div className="bg-[#111111] border border-[#222222] rounded-xl overflow-hidden">
+      <div className="bg-bg-card border border-border rounded-xl overflow-hidden">
         {loading ? (
-          <div className="p-12 text-center text-[#A1A1AA]">Yükleniyor...</div>
+          <div className="p-12 text-center text-text-secondary">Yükleniyor...</div>
         ) : filteredProjects.length > 0 ? (
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-[#A1A1AA]">
-              <thead className="bg-[#161616] border-b border-[#222222] text-[#52525B] uppercase text-xs">
+            <table className="w-full text-left text-sm text-text-secondary">
+              <thead className="bg-bg-elevated border-b border-border text-text-muted uppercase text-xs">
                 <tr>
                   <th className="px-6 py-4 font-medium">Proje Adı</th>
                   <th className="px-6 py-4 font-medium">Kategori</th>
@@ -117,24 +117,24 @@ export default function AdminProjectsList() {
               </thead>
               <tbody className="divide-y divide-[#222222]">
                 {filteredProjects.map((project) => (
-                  <motion.tr key={project.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="hover:bg-[#161616] transition-colors">
+                  <motion.tr key={project.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="hover:bg-bg-elevated transition-colors">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded bg-[#1a1a1a] flex items-center justify-center overflow-hidden flex-shrink-0 border border-[#333333]">
+                        <div className="w-10 h-10 rounded bg-bg-elevated flex items-center justify-center overflow-hidden flex-shrink-0 border border-border-subtle">
                           {project.coverImage ? (
                             <img src={project.coverImage} alt="" className="w-full h-full object-cover" />
                           ) : (
-                            <FolderGit2 className="w-5 h-5 text-[#52525B]" />
+                            <FolderGit2 className="w-5 h-5 text-text-muted" />
                           )}
                         </div>
                         <div>
-                          <p className="text-white font-medium">{project.title}</p>
-                          <p className="text-xs text-[#52525B]">v{project.version}</p>
+                          <p className="text-text-primary font-medium">{project.title}</p>
+                          <p className="text-xs text-text-muted">v{project.version}</p>
                         </div>
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      <span className="px-2.5 py-1 bg-[#222222] text-[#A1A1AA] rounded text-xs">
+                      <span className="px-2.5 py-1 bg-[#222222] text-text-secondary rounded text-xs">
                         {project.category}
                       </span>
                     </td>
@@ -152,7 +152,7 @@ export default function AdminProjectsList() {
                       <button
                         onClick={() => toggleFeature(project.id, project.featured)}
                         className={`p-1.5 rounded transition-colors ${
-                          project.featured ? 'text-yellow-500 bg-yellow-500/10 hover:bg-yellow-500/20' : 'text-[#52525B] hover:text-white hover:bg-[#222222]'
+                          project.featured ? 'text-yellow-500 bg-yellow-500/10 hover:bg-yellow-500/20' : 'text-text-muted hover:text-text-primary hover:bg-[#222222]'
                         }`}
                         title={project.featured ? "Öne çıkandan kaldır" : "Öne çıkar"}
                       >
@@ -167,7 +167,7 @@ export default function AdminProjectsList() {
                         <Link
                           href={`/project/${project.slug}`}
                           target="_blank"
-                          className="p-1.5 text-[#52525B] hover:text-white transition-colors rounded hover:bg-[#222222]"
+                          className="p-1.5 text-text-muted hover:text-text-primary transition-colors rounded hover:bg-[#222222]"
                           title="Görüntüle"
                         >
                           <ExternalLink className="w-4 h-4" />
@@ -194,13 +194,13 @@ export default function AdminProjectsList() {
             </table>
           </div>
         ) : (
-          <div className="p-12 text-center border-2 border-dashed border-[#222222] m-6 rounded-xl">
-            <FolderGit2 className="w-12 h-12 text-[#52525B] mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-white mb-2">Proje Bulunamadı</h3>
-            <p className="text-[#A1A1AA] mb-4">Arama kriterlerine uygun proje yok veya henüz hiç proje eklenmedi.</p>
+          <div className="p-12 text-center border-2 border-dashed border-border m-6 rounded-xl">
+            <FolderGit2 className="w-12 h-12 text-text-muted mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-text-primary mb-2">Proje Bulunamadı</h3>
+            <p className="text-text-secondary mb-4">Arama kriterlerine uygun proje yok veya henüz hiç proje eklenmedi.</p>
             <Link
               href="/admin/projects/new"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-[#3B82F6] hover:bg-[#2563EB] text-white font-medium rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#3B82F6] hover:bg-[#2563EB] text-text-primary font-medium rounded-lg transition-colors"
             >
               <Plus className="w-4 h-4" />
               İlk Projeni Ekle

@@ -12,22 +12,22 @@ export default function CTASection() {
       viewport={{ once: true }}
       className="h-full flex items-center justify-center py-6 lg:py-0"
     >
-      <div className="w-full border-l-2 border-[#222222] pl-6 py-4">
-        <p className="text-white text-sm font-semibold mb-1">Bir projen mi var?</p>
-        <p className="text-[#52525B] text-sm mb-5">
+      <div className="w-full border-l-2 border-border pl-6 py-4">
+        <p className="text-text-primary text-sm font-semibold mb-1">Bir projen mi var?</p>
+        <p className="text-text-muted text-sm mb-5">
           Yeni fikirler geliştirmeyi seviyorum — benimle iletişime geç.
         </p>
         <div className="flex flex-wrap gap-3">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#3B82F6] hover:bg-[#2563EB] text-white text-sm font-medium rounded-lg transition-colors"
+            className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#3B82F6] hover:bg-[#2563EB] text-text-primary text-sm font-medium rounded-lg transition-colors"
           >
             <Mail className="w-3.5 h-3.5" />
             İletişime Geç
           </Link>
           <Link
             href="/projects"
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-transparent hover:bg-[#161616] text-[#A1A1AA] hover:text-white text-sm font-medium rounded-lg border border-[#222222] hover:border-[#333333] transition-colors group"
+            className="inline-flex items-center gap-1.5 px-4 py-2 bg-transparent hover:bg-bg-elevated text-text-secondary hover:text-text-primary text-sm font-medium rounded-lg border border-border hover:border-border-subtle transition-colors group"
           >
             Projeler
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />

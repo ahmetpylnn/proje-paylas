@@ -44,15 +44,15 @@ export default function AdminMessagesPage() {
     }
   };
 
-  if (loading) return <div className="p-12 text-center text-[#A1A1AA]">Yükleniyor...</div>;
+  if (loading) return <div className="p-12 text-center text-text-secondary">Yükleniyor...</div>;
 
   const unread = messages.filter(m => !m.read).length;
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-white mb-1">Mesajlar</h1>
-        <p className="text-[#A1A1AA] text-sm">
+        <h1 className="text-3xl font-bold text-text-primary mb-1">Mesajlar</h1>
+        <p className="text-text-secondary text-sm">
           İletişim formundan gelen mesajlar.
           {unread > 0 && (
             <span className="ml-2 px-2 py-0.5 bg-[#3B82F6]/10 text-[#3B82F6] text-xs rounded-full">
@@ -63,9 +63,9 @@ export default function AdminMessagesPage() {
       </div>
 
       {messages.length === 0 ? (
-        <div className="bg-[#111111] border border-[#222222] rounded-xl p-16 text-center">
-          <Mail className="w-12 h-12 text-[#52525B] mx-auto mb-4" />
-          <p className="text-[#A1A1AA]">Henüz mesaj yok.</p>
+        <div className="bg-bg-card border border-border rounded-xl p-16 text-center">
+          <Mail className="w-12 h-12 text-text-muted mx-auto mb-4" />
+          <p className="text-text-secondary">Henüz mesaj yok.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -78,7 +78,7 @@ export default function AdminMessagesPage() {
                 className={`w-full text-left p-4 rounded-xl border transition-all ${
                   selected?.id === msg.id
                     ? 'bg-[#3B82F6]/10 border-[#3B82F6]/40'
-                    : 'bg-[#111111] border-[#222222] hover:border-[#333333]'
+                    : 'bg-bg-card border-border hover:border-border-subtle'
                 }`}
               >
                 <div className="flex items-start justify-between gap-2">
@@ -87,13 +87,13 @@ export default function AdminMessagesPage() {
                       <span className="w-2 h-2 bg-[#3B82F6] rounded-full flex-shrink-0 mt-1" />
                     )}
                     <div className="min-w-0">
-                      <p className={`text-sm font-medium truncate ${msg.read ? 'text-[#A1A1AA]' : 'text-white'}`}>
+                      <p className={`text-sm font-medium truncate ${msg.read ? 'text-text-secondary' : 'text-text-primary'}`}>
                         {msg.name}
                       </p>
-                      <p className="text-xs text-[#52525B] truncate">{msg.subject}</p>
+                      <p className="text-xs text-text-muted truncate">{msg.subject}</p>
                     </div>
                   </div>
-                  <span className="text-xs text-[#52525B] flex-shrink-0">{formatDate(msg.createdAt)}</span>
+                  <span className="text-xs text-text-muted flex-shrink-0">{formatDate(msg.createdAt)}</span>
                 </div>
               </button>
             ))}
@@ -102,18 +102,18 @@ export default function AdminMessagesPage() {
           {/* Message Detail */}
           <div className="lg:col-span-2">
             {selected ? (
-              <div className="bg-[#111111] border border-[#222222] rounded-xl p-6 space-y-4">
+              <div className="bg-bg-card border border-border rounded-xl p-6 space-y-4">
                 <div className="flex items-start justify-between">
                   <div>
-                    <h2 className="text-xl font-bold text-white">{selected.subject}</h2>
-                    <p className="text-sm text-[#A1A1AA] mt-1">
-                      <span className="font-medium text-white">{selected.name}</span>
+                    <h2 className="text-xl font-bold text-text-primary">{selected.subject}</h2>
+                    <p className="text-sm text-text-secondary mt-1">
+                      <span className="font-medium text-text-primary">{selected.name}</span>
                       {' — '}
                       <a href={`mailto:${selected.email}`} className="text-[#3B82F6] hover:underline">
                         {selected.email}
                       </a>
                     </p>
-                    <p className="text-xs text-[#52525B] mt-1">{formatDate(selected.createdAt)}</p>
+                    <p className="text-xs text-text-muted mt-1">{formatDate(selected.createdAt)}</p>
                   </div>
                   <button
                     onClick={() => handleDelete(selected.id)}
@@ -123,20 +123,20 @@ export default function AdminMessagesPage() {
                     <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
-                <hr className="border-[#222222]" />
-                <p className="text-[#A1A1AA] leading-relaxed whitespace-pre-wrap">{selected.message}</p>
+                <hr className="border-border" />
+                <p className="text-text-secondary leading-relaxed whitespace-pre-wrap">{selected.message}</p>
                 <a
                   href={`mailto:${selected.email}?subject=Re: ${selected.subject}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#3B82F6] hover:bg-[#2563EB] text-white rounded-lg text-sm font-medium transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#3B82F6] hover:bg-[#2563EB] text-text-primary rounded-lg text-sm font-medium transition-colors"
                 >
                   <Mail className="w-4 h-4" /> Yanıtla
                 </a>
               </div>
             ) : (
-              <div className="bg-[#111111] border border-[#222222] rounded-xl p-16 text-center h-full flex items-center justify-center">
+              <div className="bg-bg-card border border-border rounded-xl p-16 text-center h-full flex items-center justify-center">
                 <div>
-                  <Eye className="w-10 h-10 text-[#52525B] mx-auto mb-3" />
-                  <p className="text-[#A1A1AA]">Okumak için bir mesaj seçin.</p>
+                  <Eye className="w-10 h-10 text-text-muted mx-auto mb-3" />
+                  <p className="text-text-secondary">Okumak için bir mesaj seçin.</p>
                 </div>
               </div>
             )}

@@ -29,7 +29,7 @@ export default function GallerySlider({ images, title }: GallerySliderProps) {
     <>
       <div className="space-y-3">
         {/* Main slide */}
-        <div className="relative aspect-video bg-[#111111] rounded-xl overflow-hidden border border-[#222222] group">
+        <div className="relative aspect-video bg-bg-card rounded-xl overflow-hidden border border-border group">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -52,7 +52,7 @@ export default function GallerySlider({ images, title }: GallerySliderProps) {
           {/* Zoom button */}
           <button
             onClick={() => openLightbox(current)}
-            className="absolute top-3 right-3 p-2 bg-black/60 rounded-lg text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/80"
+            className="absolute top-3 right-3 p-2 bg-black/60 rounded-lg text-text-primary opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/80"
             aria-label="Büyüt"
           >
             <ZoomIn className="w-4 h-4" />
@@ -63,14 +63,14 @@ export default function GallerySlider({ images, title }: GallerySliderProps) {
             <>
               <button
                 onClick={prev}
-                className="absolute left-3 top-1/2 -translate-y-1/2 p-2 bg-black/60 rounded-lg text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/80"
+                className="absolute left-3 top-1/2 -translate-y-1/2 p-2 bg-black/60 rounded-lg text-text-primary opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/80"
                 aria-label="Önceki"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={next}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-black/60 rounded-lg text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/80"
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-black/60 rounded-lg text-text-primary opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/80"
                 aria-label="Sonraki"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -98,7 +98,7 @@ export default function GallerySlider({ images, title }: GallerySliderProps) {
                 key={i}
                 onClick={() => setCurrent(i)}
                 className={`relative flex-shrink-0 w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${
-                  i === current ? 'border-[#3B82F6]' : 'border-[#222222] hover:border-[#333333]'
+                  i === current ? 'border-[#3B82F6]' : 'border-border hover:border-border-subtle'
                 }`}
               >
                 <Image src={img} alt={`${title} proje görseli ${i + 1}`} fill className="object-cover" sizes="64px" />
@@ -119,7 +119,7 @@ export default function GallerySlider({ images, title }: GallerySliderProps) {
             onClick={() => setLightbox(false)}
           >
             <button
-              className="absolute top-4 right-4 p-2 text-white/60 hover:text-white transition-colors"
+              className="absolute top-4 right-4 p-2 text-text-primary/60 hover:text-text-primary transition-colors"
               onClick={() => setLightbox(false)}
               aria-label="Kapat"
             >
@@ -144,13 +144,13 @@ export default function GallerySlider({ images, title }: GallerySliderProps) {
               <>
                 <button
                   onClick={(e) => { e.stopPropagation(); setLightboxIndex((i) => (i === 0 ? images.length - 1 : i - 1)); }}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 rounded-xl text-white hover:bg-white/20 transition-colors"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 rounded-xl text-text-primary hover:bg-white/20 transition-colors"
                 >
                   <ChevronLeft className="w-6 h-6" />
                 </button>
                 <button
                   onClick={(e) => { e.stopPropagation(); setLightboxIndex((i) => (i === images.length - 1 ? 0 : i + 1)); }}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 rounded-xl text-white hover:bg-white/20 transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 rounded-xl text-text-primary hover:bg-white/20 transition-colors"
                 >
                   <ChevronRight className="w-6 h-6" />
                 </button>

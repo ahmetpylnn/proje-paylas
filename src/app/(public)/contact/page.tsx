@@ -48,7 +48,7 @@ export default function ContactPage() {
               </div>
               <h3 className="text-lg font-semibold text-[var(--foreground)] mb-1">E-posta</h3>
               <p className="text-[var(--muted)] mb-4">Bana doğrudan e-posta gönderebilirsiniz.</p>
-              <span className="text-[#A1A1AA] text-sm">Yakında</span>
+              <span className="text-text-secondary text-sm">Yakında</span>
             </div>
 
             <div className="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl p-6">
@@ -129,7 +129,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full flex items-center justify-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-4 rounded-xl transition-colors"
+                  className="w-full flex items-center justify-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] disabled:opacity-50 disabled:cursor-not-allowed text-text-primary font-semibold py-4 rounded-xl transition-colors"
                 >
                   {loading ? (
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />

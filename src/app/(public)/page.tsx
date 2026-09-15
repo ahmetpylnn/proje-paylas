@@ -75,7 +75,7 @@ export default async function HomePage() {
           <div className="flex-1">
             <AnnouncementSection text={settings?.announcement || ''} />
           </div>
-          <div className="hidden md:block w-px bg-[#1a1a1a]" />
+          <div className="hidden md:block w-px bg-bg-elevated" />
           <div className="flex-1">
             <CTASection />
           </div>

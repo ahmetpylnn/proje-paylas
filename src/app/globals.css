@@ -8,21 +8,23 @@
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Design tokens */
-  --color-bg-primary: #0A0A0A;
-  --color-bg-card: #111111;
-  --color-bg-elevated: #161616;
-  --color-border: #222222;
-  --color-border-subtle: #1a1a1a;
+  --color-bg-primary: var(--background);
+  --color-bg-card: var(--card-bg);
+  --color-bg-elevated: var(--elevated-bg);
+  --color-border: var(--card-border);
+  --color-border-subtle: var(--input-border);
   --color-accent: #3B82F6;
   --color-accent-hover: #2563EB;
   --color-accent-glow: rgba(59, 130, 246, 0.15);
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #A1A1AA;
-  --color-text-muted: #52525B;
+  --color-text-primary: var(--foreground);
+  --color-text-secondary: var(--muted);
+  --color-text-muted: var(--muted-foreground);
   --color-success: #10B981;
   --color-warning: #F59E0B;
   --color-danger: #EF4444;
 }
+
+@custom-variant dark (&:is(.dark *));
 
 /* ─── Dark Mode (default) ─────────────────────────────────────────────────── */
 :root,
@@ -58,28 +60,8 @@
   --scrollbar-thumb: #CBD5E1;
   --scrollbar-thumb-hover: #94A3B8;
   --nav-hover: #F1F5F9;
-  --badge-bg: #F1F5F9;
+  --badge-bg: #E2E8F0;
 }
-
-/* Legacy component classes retain the same hierarchy in the light theme. */
-.light .bg-\[\#0A0A0A\] { background-color: var(--background) !important; }
-.light .bg-\[\#111111\] { background-color: var(--card-bg) !important; }
-.light .bg-\[\#161616\], .light .bg-\[\#1a1a1a\] { background-color: var(--elevated-bg) !important; }
-.light .border-\[\#222222\], .light .border-\[\#1a1a1a\], .light .border-\[\#333333\] { border-color: var(--card-border) !important; }
-.light .text-white { color: var(--foreground) !important; }
-.light .text-\[\#A1A1AA\] { color: var(--muted) !important; }
-.light .text-\[\#52525B\] { color: var(--muted-foreground) !important; }
-.light .text-white\/60 { color: color-mix(in srgb, var(--foreground) 60%, transparent) !important; }
-.light .text-white\/40 { color: color-mix(in srgb, var(--foreground) 40%, transparent) !important; }
-.light .placeholder-\[\#52525B\]::placeholder { color: var(--muted-foreground) !important; }
-.light .bg-black\/60 { background-color: rgb(15 23 42 / 0.6) !important; }
-.light .bg-black\/80 { background-color: rgb(15 23 42 / 0.8) !important; }
-.light .bg-white\/10 { background-color: rgb(15 23 42 / 0.1) !important; }
-.light .bg-white\/5 { background-color: rgb(15 23 42 / 0.05) !important; }
-.light .border-white\/20 { border-color: rgb(15 23 42 / 0.2) !important; }
-.light .border-white\/10 { border-color: rgb(15 23 42 / 0.1) !important; }
-.light .hover\:text-white:hover { color: var(--foreground) !important; }
-.light .hover\:bg-\[\#161616\]:hover { background-color: var(--elevated-bg) !important; }
 
 *, *::before, *::after {
   box-sizing: border-box;

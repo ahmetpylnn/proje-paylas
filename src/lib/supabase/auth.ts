@@ -29,5 +29,12 @@ export const signIn = async (email: string, password: string) => {
 };
 
 export const isAdmin = (user: User | null): boolean => {
-  return user?.app_metadata?.role === 'admin';
+  if (!user) return false;
+  // 1. Supabase custom claims
+  if (user.app_metadata?.role === 'admin') return true;
+  // 2. Environment variable fallback
+  if (process.env.NEXT_PUBLIC_ADMIN_EMAIL && user.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL) return true;
+  
+  // If neither is set, we deny access to be safe
+  return false;
 };

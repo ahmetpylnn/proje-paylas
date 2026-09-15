@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FolderGit2, Download, Eye, TerminalSquare } from 'lucide-react';
 import { formatNumber } from '@/lib/utils';
@@ -17,11 +17,14 @@ interface StatsSectionProps {
 const PUBLIC_VIEW_COUNT_KEY = 'public-view-count';
 
 export default function StatsSection({ stats, linesOfCode }: StatsSectionProps) {
-  const [publicViewCount] = useState(() => {
-    if (typeof window === 'undefined') return 42;
+  const [publicViewCount, setPublicViewCount] = useState(42);
+
+  useEffect(() => {
     const storedCount = Number(window.localStorage.getItem(PUBLIC_VIEW_COUNT_KEY));
-    return Number.isFinite(storedCount) && storedCount >= 42 ? storedCount : 42;
-  });
+    if (Number.isFinite(storedCount) && storedCount >= 42) {
+      setPublicViewCount(storedCount);
+    }
+  }, []);
 
   const statItems = [
     {
@@ -53,7 +56,7 @@ export default function StatsSection({ stats, linesOfCode }: StatsSectionProps) 
   ];
 
   return (
-    <section className="py-20 px-4 border-y border-[#222222] bg-[#0A0A0A] relative overflow-hidden">
+    <section className="py-20 px-4 border-y border-border bg-background relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[300px] bg-[#3B82F6]/5 blur-[100px] pointer-events-none" />
 
@@ -76,10 +79,10 @@ export default function StatsSection({ stats, linesOfCode }: StatsSectionProps) 
                 >
                   <Icon className="w-6 h-6" style={{ color: item.color }} />
                 </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                <h3 className="text-3xl md:text-4xl font-bold text-text-primary mb-2">
                   {typeof item.value === 'number' ? formatNumber(item.value) : item.value}
                 </h3>
-                <p className="text-[#A1A1AA] text-sm font-medium">{item.label}</p>
+                <p className="text-text-secondary text-sm font-medium">{item.label}</p>
               </motion.div>
             );
           })}

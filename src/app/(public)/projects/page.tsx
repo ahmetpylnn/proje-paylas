@@ -80,8 +80,8 @@ export default function ProjectsPage() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-white mb-4">Projeler</h1>
-          <p className="text-[#A1A1AA] text-lg max-w-2xl">
+          <h1 className="text-4xl font-bold text-text-primary mb-4">Projeler</h1>
+          <p className="text-text-secondary text-lg max-w-2xl">
             Tüm çalışmalarımı, açık kaynak projelerimi ve denemelerimi burada bulabilirsiniz.
             Filtreleri kullanarak ilgilendiğiniz teknolojilere göre arama yapabilirsiniz.
           </p>
@@ -111,19 +111,19 @@ export default function ProjectsPage() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="flex flex-col items-center justify-center py-20 text-center border border-dashed border-[#222222] rounded-2xl bg-[#111111]/50"
+            className="flex flex-col items-center justify-center py-20 text-center border border-dashed border-border rounded-2xl bg-bg-card/50"
           >
-            <div className="w-16 h-16 bg-[#161616] rounded-full flex items-center justify-center mb-4">
-              <FolderGit2 className="w-8 h-8 text-[#52525B]" />
+            <div className="w-16 h-16 bg-bg-elevated rounded-full flex items-center justify-center mb-4">
+              <FolderGit2 className="w-8 h-8 text-text-muted" />
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Proje Bulunamadı</h3>
-            <p className="text-[#A1A1AA]">
+            <h3 className="text-xl font-semibold text-text-primary mb-2">Proje Bulunamadı</h3>
+            <p className="text-text-secondary">
               Seçtiğiniz filtrelere uygun proje bulunmuyor. Farklı filtreler denemeyi veya
               arama teriminizi değiştirmeyi deneyin.
             </p>
             <button
               onClick={() => setFilters({ search: '', category: '', technology: '', sort: 'newest' })}
-              className="mt-6 px-6 py-2.5 bg-[#3B82F6] hover:bg-[#2563EB] text-white font-medium rounded-lg transition-colors"
+              className="mt-6 px-6 py-2.5 bg-[#3B82F6] hover:bg-[#2563EB] text-text-primary font-medium rounded-lg transition-colors"
             >
               Filtreleri Temizle
             </button>

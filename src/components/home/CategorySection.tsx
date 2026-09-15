@@ -31,7 +31,7 @@ export default function CategorySection({ counts = {} }: CategorySectionProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl font-bold text-white"
+            className="text-3xl font-bold text-text-primary"
           >
             Proje Kategorileri
           </motion.h2>
@@ -51,7 +51,7 @@ export default function CategorySection({ counts = {} }: CategorySectionProps) {
               >
                 <Link
                   href={`/projects?category=${cat.id}`}
-                  className="group block p-5 bg-[#111111] border border-[#222222] rounded-xl hover:border-[#333333] hover:bg-[#161616] transition-all duration-200 card-hover"
+                  className="group block p-5 bg-bg-card border border-border rounded-xl hover:border-border-subtle hover:bg-bg-elevated transition-all duration-200 card-hover"
                 >
                   <div
                     className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 transition-transform group-hover:scale-110 duration-200"
@@ -59,8 +59,8 @@ export default function CategorySection({ counts = {} }: CategorySectionProps) {
                   >
                     {Icon && <Icon className="w-5 h-5" style={{ color: cat.color }} />}
                   </div>
-                  <p className="text-white font-medium text-sm mb-1">{cat.name}</p>
-                  <p className="text-[#52525B] text-xs">
+                  <p className="text-text-primary font-medium text-sm mb-1">{cat.name}</p>
+                  <p className="text-text-muted text-xs">
                     {count > 0 ? `${count} proje` : 'Proje yok'}
                   </p>
                 </Link>

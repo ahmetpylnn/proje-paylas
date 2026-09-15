@@ -42,6 +42,6 @@ export default function BlogEditor({ post }: { post?: BlogPost }) {
     <div><label className="mb-1 block text-sm text-[var(--muted)]">Kapak görseli URL&apos;si</label><input value={form.coverImage} onChange={(e) => update('coverImage', e.target.value)} className={inputClass} /></div>
     <div><label className="mb-1 block text-sm text-[var(--muted)]">Etiketler</label><input value={form.tags.join(', ')} onChange={(e) => update('tags', e.target.value.split(',').map((item) => item.trim()).filter(Boolean))} className={inputClass} placeholder="nextjs, supabase" /></div>
     <label className="flex items-center gap-2 text-sm text-[var(--foreground)]"><input type="checkbox" checked={form.published} onChange={(e) => update('published', e.target.checked)} /> Yayınla</label>
-    <div className="flex gap-3"><button disabled={saving} className="rounded-md bg-[#3B82F6] px-4 py-2 text-sm font-medium text-white disabled:opacity-50">{saving ? 'Kaydediliyor…' : 'Kaydet'}</button><button type="button" onClick={() => router.back()} className="rounded-md border border-[var(--card-border)] px-4 py-2 text-sm text-[var(--foreground)]">İptal</button></div>
+    <div className="flex gap-3"><button disabled={saving} className="rounded-md bg-[#3B82F6] px-4 py-2 text-sm font-medium text-text-primary disabled:opacity-50">{saving ? 'Kaydediliyor…' : 'Kaydet'}</button><button type="button" onClick={() => router.back()} className="rounded-md border border-[var(--card-border)] px-4 py-2 text-sm text-[var(--foreground)]">İptal</button></div>
   </form>;
 }

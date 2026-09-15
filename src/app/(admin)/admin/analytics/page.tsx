@@ -36,61 +36,61 @@ export default function AnalyticsPage() {
   });
 
   if (loading) {
-    return <div className="p-12 text-center text-[#A1A1AA]">Yükleniyor...</div>;
+    return <div className="p-12 text-center text-text-secondary">Yükleniyor...</div>;
   }
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-white mb-1">Analitik</h1>
-        <p className="text-[#A1A1AA] text-sm">Ziyaretçi etkileşimlerini ve indirmeleri takip edin.</p>
+        <h1 className="text-3xl font-bold text-text-primary mb-1">Analitik</h1>
+        <p className="text-text-secondary text-sm">Ziyaretçi etkileşimlerini ve indirmeleri takip edin.</p>
       </div>
 
       {/* Summary Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-[#111111] border border-[#222222] rounded-xl p-5">
+        <div className="bg-bg-card border border-border rounded-xl p-5">
           <div className="flex items-center gap-2 mb-2">
             <div className="p-1.5 bg-blue-500/10 text-blue-500 rounded-lg"><Eye className="w-4 h-4"/></div>
-            <h3 className="text-[#A1A1AA] text-sm font-medium">Görüntülenme</h3>
+            <h3 className="text-text-secondary text-sm font-medium">Görüntülenme</h3>
           </div>
-          <p className="text-2xl font-bold text-white">{stats?.totalViews || 0}</p>
-          <p className="text-xs text-[#52525B] mt-1">Gerçek sayı</p>
+          <p className="text-2xl font-bold text-text-primary">{stats?.totalViews || 0}</p>
+          <p className="text-xs text-text-muted mt-1">Gerçek sayı</p>
         </div>
-        <div className="bg-[#111111] border border-[#222222] rounded-xl p-5">
+        <div className="bg-bg-card border border-border rounded-xl p-5">
           <div className="flex items-center gap-2 mb-2">
             <div className="p-1.5 bg-green-500/10 text-green-500 rounded-lg"><Download className="w-4 h-4"/></div>
-            <h3 className="text-[#A1A1AA] text-sm font-medium">İndirme</h3>
+            <h3 className="text-text-secondary text-sm font-medium">İndirme</h3>
           </div>
-          <p className="text-2xl font-bold text-white">{stats?.totalDownloads || 0}</p>
+          <p className="text-2xl font-bold text-text-primary">{stats?.totalDownloads || 0}</p>
         </div>
-        <div className="bg-[#111111] border border-[#222222] rounded-xl p-5">
+        <div className="bg-bg-card border border-border rounded-xl p-5">
           <div className="flex items-center gap-2 mb-2">
             <div className="p-1.5 bg-purple-500/10 text-purple-500 rounded-lg"><Users className="w-4 h-4"/></div>
-            <h3 className="text-[#A1A1AA] text-sm font-medium">Tekil Ziyaretçi</h3>
+            <h3 className="text-text-secondary text-sm font-medium">Tekil Ziyaretçi</h3>
           </div>
-          <p className="text-2xl font-bold text-white">{visitorStats?.uniqueVisitors || 0}</p>
-          <p className="text-xs text-[#52525B] mt-1">IP hash bazlı</p>
+          <p className="text-2xl font-bold text-text-primary">{visitorStats?.uniqueVisitors || 0}</p>
+          <p className="text-xs text-text-muted mt-1">IP hash bazlı</p>
         </div>
-        <div className="bg-[#111111] border border-[#222222] rounded-xl p-5">
+        <div className="bg-bg-card border border-border rounded-xl p-5">
           <div className="flex items-center gap-2 mb-2">
             <div className="p-1.5 bg-orange-500/10 text-orange-500 rounded-lg"><Globe className="w-4 h-4"/></div>
-            <h3 className="text-[#A1A1AA] text-sm font-medium">Toplam Ziyaret</h3>
+            <h3 className="text-text-secondary text-sm font-medium">Toplam Ziyaret</h3>
           </div>
-          <p className="text-2xl font-bold text-white">{visitorStats?.totalVisits || 0}</p>
+          <p className="text-2xl font-bold text-text-primary">{visitorStats?.totalVisits || 0}</p>
         </div>
       </div>
 
       {/* Visitors Table */}
-      <div className="bg-[#111111] border border-[#222222] rounded-xl overflow-hidden">
-        <div className="p-5 border-b border-[#222222] flex items-center justify-between">
+      <div className="bg-bg-card border border-border rounded-xl overflow-hidden">
+        <div className="p-5 border-b border-border flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-semibold text-white">Ziyaretçiler</h2>
-            <p className="text-xs text-[#52525B] mt-0.5">IP adresleri SHA-256 ile hash&apos;lenerek saklanır — ham IP tutulmaz (GDPR uyumlu)</p>
+            <h2 className="text-lg font-semibold text-text-primary">Ziyaretçiler</h2>
+            <p className="text-xs text-text-muted mt-0.5">IP adresleri SHA-256 ile hash&apos;lenerek saklanır — ham IP tutulmaz (GDPR uyumlu)</p>
           </div>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-sm text-[#A1A1AA]">
-            <thead className="bg-[#161616] border-b border-[#222222] text-[#52525B]">
+          <table className="w-full text-left text-sm text-text-secondary">
+            <thead className="bg-bg-elevated border-b border-border text-text-muted">
               <tr>
                 <th className="px-5 py-3 font-medium">IP Hash</th>
                 <th className="px-5 py-3 font-medium">İlk Ziyaret</th>
@@ -100,8 +100,8 @@ export default function AnalyticsPage() {
             </thead>
             <tbody className="divide-y divide-[#222222]">
               {visitors.length > 0 ? visitors.map((v, i) => (
-                <tr key={i} className="hover:bg-[#161616]">
-                  <td className="px-5 py-3 font-mono text-xs text-[#52525B]">{v.ipHash}</td>
+                <tr key={i} className="hover:bg-bg-elevated">
+                  <td className="px-5 py-3 font-mono text-xs text-text-muted">{v.ipHash}</td>
                   <td className="px-5 py-3 text-xs">{formatDate(v.firstVisit)}</td>
                   <td className="px-5 py-3 text-xs">{formatRelativeDate(v.lastVisit)}</td>
                   <td className="px-5 py-3 text-right">
@@ -112,7 +112,7 @@ export default function AnalyticsPage() {
                 </tr>
               )) : (
                 <tr>
-                  <td colSpan={4} className="px-5 py-8 text-center text-[#52525B]">Henüz ziyaretçi verisi yok.</td>
+                  <td colSpan={4} className="px-5 py-8 text-center text-text-muted">Henüz ziyaretçi verisi yok.</td>
                 </tr>
               )}
             </tbody>
@@ -121,13 +121,13 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Recent Events Log */}
-      <div className="bg-[#111111] border border-[#222222] rounded-xl overflow-hidden">
-        <div className="p-5 border-b border-[#222222]">
-          <h2 className="text-lg font-semibold text-white">Son Etkileşimler</h2>
+      <div className="bg-bg-card border border-border rounded-xl overflow-hidden">
+        <div className="p-5 border-b border-border">
+          <h2 className="text-lg font-semibold text-text-primary">Son Etkileşimler</h2>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-sm text-[#A1A1AA]">
-            <thead className="bg-[#161616] border-b border-[#222222] text-[#52525B]">
+          <table className="w-full text-left text-sm text-text-secondary">
+            <thead className="bg-bg-elevated border-b border-border text-text-muted">
               <tr>
                 <th className="px-5 py-3 font-medium">Tür</th>
                 <th className="px-5 py-3 font-medium">Proje</th>
@@ -136,7 +136,7 @@ export default function AnalyticsPage() {
             </thead>
             <tbody className="divide-y divide-[#222222]">
               {events.length > 0 ? events.map(event => (
-                <tr key={event.id} className="hover:bg-[#161616]">
+                <tr key={event.id} className="hover:bg-bg-elevated">
                   <td className="px-5 py-4">
                     <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${
                       event.type === 'view' ? 'bg-blue-500/10 text-blue-500' :
@@ -149,12 +149,12 @@ export default function AnalyticsPage() {
                       {event.type.toUpperCase()}
                     </span>
                   </td>
-                  <td className="px-5 py-4 text-white font-medium">{event.projectTitle}</td>
+                  <td className="px-5 py-4 text-text-primary font-medium">{event.projectTitle}</td>
                   <td className="px-5 py-4 text-right text-xs">{formatDate(event.timestamp)}</td>
                 </tr>
               )) : (
                 <tr>
-                  <td colSpan={3} className="px-5 py-8 text-center text-[#52525B]">Henüz etkileşim verisi yok.</td>
+                  <td colSpan={3} className="px-5 py-8 text-center text-text-muted">Henüz etkileşim verisi yok.</td>
                 </tr>
               )}
             </tbody>

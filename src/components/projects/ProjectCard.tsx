@@ -28,20 +28,20 @@ export default function ProjectCard({ project, index = 0, featured = false }: Pr
       <Link href={`/project/${project.slug}`} className="group block">
         <article
           className={cn(
-            'relative bg-[#111111] border border-[#222222] rounded-xl overflow-hidden card-hover',
+            'relative bg-bg-card border border-border rounded-xl overflow-hidden card-hover',
             featured && 'border-[#3B82F6]/30 shadow-[0_0_30px_rgba(59,130,246,0.08)]'
           )}
         >
           {/* Featured badge */}
           {project.featured && (
-            <div className="absolute top-3 left-3 z-10 flex items-center gap-1 px-2.5 py-1 bg-[#3B82F6] rounded-full text-white text-xs font-semibold shadow-lg">
+            <div className="absolute top-3 left-3 z-10 flex items-center gap-1 px-2.5 py-1 bg-[#3B82F6] rounded-full text-text-primary text-xs font-semibold shadow-lg">
               <Star className="w-3 h-3 fill-white" />
               Öne Çıkan
             </div>
           )}
 
           {/* Cover image */}
-          <div className="relative h-48 bg-[#161616] overflow-hidden">
+          <div className="relative h-48 bg-bg-elevated overflow-hidden">
             {project.coverImage && !imageFailed ? (
               <Image
                 src={project.coverImage}
@@ -69,19 +69,19 @@ export default function ProjectCard({ project, index = 0, featured = false }: Pr
               <span className="text-xs text-[#3B82F6] font-medium uppercase tracking-wider">
                 {project.category}
               </span>
-              <div className="flex items-center gap-1 text-[#52525B] text-xs">
+              <div className="flex items-center gap-1 text-text-muted text-xs">
                 <Calendar className="w-3 h-3" />
                 {formatDate(project.releaseDate || project.createdAt)}
               </div>
             </div>
 
             {/* Title */}
-            <h3 className="text-white font-semibold text-base mb-2 group-hover:text-[#3B82F6] transition-colors duration-200 leading-tight">
+            <h3 className="text-text-primary font-semibold text-base mb-2 group-hover:text-[#3B82F6] transition-colors duration-200 leading-tight">
               {project.title}
             </h3>
 
             {/* Description */}
-            <p className="text-[#A1A1AA] text-sm leading-relaxed mb-4 line-clamp-2">
+            <p className="text-text-secondary text-sm leading-relaxed mb-4 line-clamp-2">
               {truncate(project.shortDescription, 120)}
             </p>
 
@@ -92,7 +92,7 @@ export default function ProjectCard({ project, index = 0, featured = false }: Pr
                   <TechBadge key={tech} name={tech} size="sm" />
                 ))}
                 {project.technologies.length > 3 && (
-                  <span className="px-2 py-0.5 text-xs text-[#52525B] bg-[#161616] border border-[#222222] rounded-full">
+                  <span className="px-2 py-0.5 text-xs text-text-muted bg-bg-elevated border border-border rounded-full">
                     +{project.technologies.length - 3}
                   </span>
                 )}

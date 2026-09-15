@@ -42,7 +42,7 @@ function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="min-h-screen bg-background flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#3B82F6] rounded-full mix-blend-screen filter blur-[120px] opacity-10" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500 rounded-full mix-blend-screen filter blur-[120px] opacity-10" />
@@ -51,27 +51,27 @@ function LoginForm() {
       <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10">
         <div className="flex justify-center mb-6">
           <div className="w-12 h-12 bg-[#3B82F6] rounded-xl flex items-center justify-center">
-            <Code2 className="w-6 h-6 text-white" />
+            <Code2 className="w-6 h-6 text-text-primary" />
           </div>
         </div>
-        <h2 className="text-center text-3xl font-bold tracking-tight text-white mb-2">
+        <h2 className="text-center text-3xl font-bold tracking-tight text-text-primary mb-2">
           Yönetici Girişi
         </h2>
-        <p className="text-center text-sm text-[#A1A1AA]">
+        <p className="text-center text-sm text-text-secondary">
           Sadece yetkili kullanıcılar erişebilir.
         </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md relative z-10">
-        <div className="bg-[#111111] py-8 px-4 shadow-2xl sm:rounded-2xl border border-[#222222] sm:px-10">
+        <div className="bg-bg-card py-8 px-4 shadow-2xl sm:rounded-2xl border border-border sm:px-10">
           <form className="space-y-6" onSubmit={handleLogin}>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-[#A1A1AA] mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-2">
                 E-posta Adresi
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Mail className="h-5 w-5 text-[#52525B]" />
+                  <Mail className="h-5 w-5 text-text-muted" />
                 </div>
                 <input
                   id="email"
@@ -81,19 +81,19 @@ function LoginForm() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="block w-full pl-10 pr-3 py-2.5 bg-[#161616] border border-[#333333] rounded-lg text-white placeholder-[#52525B] focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] transition-colors sm:text-sm"
+                  className="block w-full pl-10 pr-3 py-2.5 bg-bg-elevated border border-border-subtle rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] transition-colors sm:text-sm"
                   placeholder="admin@example.com"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-[#A1A1AA] mb-2">
+              <label htmlFor="password" className="block text-sm font-medium text-text-secondary mb-2">
                 Şifre
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock className="h-5 w-5 text-[#52525B]" />
+                  <Lock className="h-5 w-5 text-text-muted" />
                 </div>
                 <input
                   id="password"
@@ -103,7 +103,7 @@ function LoginForm() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="block w-full pl-10 pr-3 py-2.5 bg-[#161616] border border-[#333333] rounded-lg text-white placeholder-[#52525B] focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] transition-colors sm:text-sm"
+                  className="block w-full pl-10 pr-3 py-2.5 bg-bg-elevated border border-border-subtle rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] transition-colors sm:text-sm"
                   placeholder="••••••••"
                 />
               </div>
@@ -112,7 +112,7 @@ function LoginForm() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-[#3B82F6] hover:bg-[#2563EB] focus:outline-none disabled:opacity-50 transition-colors"
+              className="w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-text-primary bg-[#3B82F6] hover:bg-[#2563EB] focus:outline-none disabled:opacity-50 transition-colors"
             >
               {loading ? (
                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -132,7 +132,7 @@ function LoginForm() {
 
 function LoginFallback() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">
+    <div className="min-h-screen bg-background flex items-center justify-center">
       <div className="w-8 h-8 border-2 border-[#3B82F6]/30 border-t-[#3B82F6] rounded-full animate-spin" />
     </div>
   );

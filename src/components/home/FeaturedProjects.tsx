@@ -33,14 +33,14 @@ export default function FeaturedProjects({ projects }: FeaturedProjectsProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-3xl font-bold text-white"
+              className="text-3xl font-bold text-text-primary"
             >
               Seçilmiş Çalışmalar
             </motion.h2>
           </div>
           <Link
             href="/projects"
-            className="hidden sm:flex items-center gap-2 text-sm text-[#A1A1AA] hover:text-white transition-colors group"
+            className="hidden sm:flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors group"
           >
             Tümünü gör
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -58,7 +58,7 @@ export default function FeaturedProjects({ projects }: FeaturedProjectsProps) {
         <div className="sm:hidden mt-6 text-center">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-sm text-[#A1A1AA] hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
           >
             Tüm projeleri gör
             <ArrowRight className="w-4 h-4" />

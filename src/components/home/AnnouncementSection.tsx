@@ -26,7 +26,7 @@ export default function AnnouncementSection({ text }: AnnouncementSectionProps) 
             Yenilikler
           </span>
         </div>
-        <p className="text-[#A1A1AA] text-sm leading-relaxed whitespace-pre-wrap">
+        <p className="text-text-secondary text-sm leading-relaxed whitespace-pre-wrap">
           {content}
         </p>
       </div>

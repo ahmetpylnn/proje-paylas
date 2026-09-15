@@ -37,7 +37,7 @@ export default function HeroSection() {
         >
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#3B82F6] hover:bg-[#2563EB] text-white font-semibold rounded-md transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#3B82F6] hover:bg-[#2563EB] text-text-primary font-semibold rounded-md transition-colors"
           >
             Projeleri Keşfet
             <ArrowRight className="w-4 h-4" />

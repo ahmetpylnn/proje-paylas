@@ -108,7 +108,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           {/* Back button */}
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-[#A1A1AA] hover:text-white mb-8 transition-colors text-sm font-medium"
+            className="inline-flex items-center gap-2 text-text-secondary hover:text-text-primary mb-8 transition-colors text-sm font-medium"
           >
             <ArrowLeft className="w-4 h-4" />
             Projelere Dön
@@ -120,27 +120,27 @@ export default async function ProjectDetailPage({ params }: Props) {
               <span className="px-3 py-1 bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/20 rounded-full text-xs font-semibold uppercase tracking-wider">
                 {project.category}
               </span>
-              <div className="flex items-center gap-1.5 text-[#A1A1AA] text-sm">
+              <div className="flex items-center gap-1.5 text-text-secondary text-sm">
                 <Calendar className="w-4 h-4" />
                 <time dateTime={project.releaseDate || project.createdAt}>
                   {formatDate(project.releaseDate || project.createdAt)}
                 </time>
               </div>
-              <div className="flex items-center gap-1.5 text-[#A1A1AA] text-sm">
+              <div className="flex items-center gap-1.5 text-text-secondary text-sm">
                 <ShieldCheck className="w-4 h-4 text-[#10B981]" />
                 v{project.version}
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-6 leading-tight">
               {project.title}
             </h1>
 
-            <p className="text-xl text-[#A1A1AA] leading-relaxed mb-8">
+            <p className="text-xl text-text-secondary leading-relaxed mb-8">
               {project.shortDescription}
             </p>
 
-            <div className="flex justify-end border-y border-[#222222] py-4">
+            <div className="flex justify-end border-y border-border py-4">
               <ShareButtons url={projectUrl} title={project.title} />
             </div>
           </header>
@@ -150,7 +150,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             {project.galleryImages?.length > 0 ? (
               <GallerySlider images={[project.coverImage, ...project.galleryImages].filter(Boolean)} title={project.title} />
             ) : project.coverImage ? (
-              <div className="relative aspect-video rounded-xl overflow-hidden border border-[#222222]">
+              <div className="relative aspect-video rounded-xl overflow-hidden border border-border">
                 <Image
                   src={project.coverImage}
                   alt={`${project.title} proje ekran görüntüsü`}
@@ -168,7 +168,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             <div className="lg:col-span-2 space-y-12">
               {/* Description */}
               <section>
-                <h2 className="text-2xl font-bold text-white mb-6">Proje Detayları</h2>
+                <h2 className="text-2xl font-bold text-text-primary mb-6">Proje Detayları</h2>
                 <div className="prose prose-dark max-w-none prose-lg">
                   <ReactMarkdown>{project.longDescription}</ReactMarkdown>
                 </div>
@@ -177,13 +177,13 @@ export default async function ProjectDetailPage({ params }: Props) {
               {/* Tags */}
               {project.tags?.length > 0 && (
                 <section>
-                  <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                    <Tag className="w-5 h-5 text-[#52525B]" />
+                  <h3 className="text-lg font-semibold text-text-primary mb-4 flex items-center gap-2">
+                    <Tag className="w-5 h-5 text-text-muted" />
                     Etiketler
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1.5 bg-[#161616] border border-[#222222] rounded-lg text-sm text-[#A1A1AA]">
+                      <span key={tag} className="px-3 py-1.5 bg-bg-elevated border border-border rounded-lg text-sm text-text-secondary">
                         #{tag}
                       </span>
                     ))}
@@ -195,8 +195,8 @@ export default async function ProjectDetailPage({ params }: Props) {
             {/* Sidebar */}
             <aside className="space-y-8">
               {/* Actions Card */}
-              <div className="bg-[#111111] border border-[#222222] rounded-xl p-6">
-                <h3 className="text-lg font-semibold text-white mb-4">Bağlantılar</h3>
+              <div className="bg-bg-card border border-border rounded-xl p-6">
+                <h3 className="text-lg font-semibold text-text-primary mb-4">Bağlantılar</h3>
                 <div className="space-y-3">
                   {project.demoUrl && (
                     <TrackedProjectLink
@@ -204,7 +204,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                       eventType="demo_click"
                       projectId={project.id}
                       projectTitle={project.title}
-                      className="flex items-center justify-center gap-2 w-full py-3 bg-[#3B82F6] hover:bg-[#2563EB] text-white rounded-lg font-medium transition-colors"
+                      className="flex items-center justify-center gap-2 w-full py-3 bg-[#3B82F6] hover:bg-[#2563EB] text-text-primary rounded-lg font-medium transition-colors"
                     >
                       <ExternalLink className="w-4 h-4" />
                       Canlı Demo
@@ -216,7 +216,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                       eventType="github_click"
                       projectId={project.id}
                       projectTitle={project.title}
-                      className="flex items-center justify-center gap-2 w-full py-3 bg-[#161616] hover:bg-[#1a1a1a] text-white border border-[#333333] hover:border-[#444444] rounded-lg font-medium transition-colors"
+                      className="flex items-center justify-center gap-2 w-full py-3 bg-bg-elevated hover:bg-bg-elevated text-text-primary border border-border-subtle hover:border-[#444444] rounded-lg font-medium transition-colors"
                     >
                       <GithubIcon className="w-4 h-4" />
                       Kaynak Kod (GitHub)
@@ -240,8 +240,8 @@ export default async function ProjectDetailPage({ params }: Props) {
 
               {/* Technologies Card */}
               {project.technologies?.length > 0 && (
-                <div className="bg-[#111111] border border-[#222222] rounded-xl p-6">
-                  <h3 className="text-lg font-semibold text-white mb-4">Teknolojiler</h3>
+                <div className="bg-bg-card border border-border rounded-xl p-6">
+                  <h3 className="text-lg font-semibold text-text-primary mb-4">Teknolojiler</h3>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <TechBadge key={tech} name={tech} size="md" />
@@ -254,8 +254,8 @@ export default async function ProjectDetailPage({ params }: Props) {
 
           {/* Related Projects */}
           {relatedProjects.length > 0 && (
-            <section className="mt-20 pt-10 border-t border-[#222222]">
-              <h2 className="text-2xl font-bold text-white mb-6">Benzer Projeler</h2>
+            <section className="mt-20 pt-10 border-t border-border">
+              <h2 className="text-2xl font-bold text-text-primary mb-6">Benzer Projeler</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {relatedProjects.map((rp) => (
                   <ProjectCard key={rp.id} project={rp} />

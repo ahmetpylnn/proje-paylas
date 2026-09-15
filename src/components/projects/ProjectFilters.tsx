@@ -30,19 +30,19 @@ export default function ProjectFiltersComponent({ filters, onChange, totalCount 
       <div className="flex flex-col sm:flex-row gap-3">
         {/* Search */}
         <div className="relative flex-1">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#52525B]" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
           <input
             id="project-search"
             type="text"
             value={filters.search}
             onChange={(e) => handleSearch(e.target.value)}
             placeholder="Proje ara..."
-            className="w-full bg-[#111111] border border-[#222222] text-white placeholder-[#52525B] rounded-lg pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:border-[#3B82F6] transition-colors"
+            className="w-full bg-bg-card border border-border text-text-primary placeholder-text-muted rounded-lg pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:border-[#3B82F6] transition-colors"
           />
           {filters.search && (
             <button
               onClick={() => handleSearch('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-[#52525B] hover:text-white transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-primary transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
@@ -54,10 +54,10 @@ export default function ProjectFiltersComponent({ filters, onChange, totalCount 
           id="project-sort"
           value={filters.sort}
           onChange={(e) => handleSort(e.target.value as SortOption)}
-          className="bg-[#111111] border border-[#222222] text-white rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#3B82F6] transition-colors cursor-pointer"
+          className="bg-bg-card border border-border text-text-primary rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#3B82F6] transition-colors cursor-pointer"
         >
           {SORT_OPTIONS.map((opt) => (
-            <option key={opt.value} value={opt.value} className="bg-[#111111]">
+            <option key={opt.value} value={opt.value} className="bg-bg-card">
               {opt.label}
             </option>
           ))}
@@ -70,7 +70,7 @@ export default function ProjectFiltersComponent({ filters, onChange, totalCount 
             'flex items-center gap-2 px-4 py-2.5 rounded-lg border text-sm font-medium transition-all',
             showTechFilter || filters.technology
               ? 'bg-[#3B82F6]/10 border-[#3B82F6]/40 text-[#3B82F6]'
-              : 'bg-[#111111] border-[#222222] text-[#A1A1AA] hover:text-white hover:border-[#333333]'
+              : 'bg-bg-card border-border text-text-secondary hover:text-text-primary hover:border-border-subtle'
           )}
         >
           <SlidersHorizontal className="w-4 h-4" />
@@ -88,8 +88,8 @@ export default function ProjectFiltersComponent({ filters, onChange, totalCount 
           className={cn(
             'px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-200',
             !filters.category
-              ? 'bg-[#3B82F6] border-[#3B82F6] text-white'
-              : 'bg-transparent border-[#222222] text-[#A1A1AA] hover:border-[#333333] hover:text-white'
+              ? 'bg-[#3B82F6] border-[#3B82F6] text-text-primary'
+              : 'bg-transparent border-border text-text-secondary hover:border-border-subtle hover:text-text-primary'
           )}
         >
           Tümü
@@ -101,8 +101,8 @@ export default function ProjectFiltersComponent({ filters, onChange, totalCount 
             className={cn(
               'px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-200',
               filters.category === cat.id
-                ? 'bg-[#3B82F6] border-[#3B82F6] text-white'
-                : 'bg-transparent border-[#222222] text-[#A1A1AA] hover:border-[#333333] hover:text-white'
+                ? 'bg-[#3B82F6] border-[#3B82F6] text-text-primary'
+                : 'bg-transparent border-border text-text-secondary hover:border-border-subtle hover:text-text-primary'
             )}
           >
             {cat.name}
@@ -112,8 +112,8 @@ export default function ProjectFiltersComponent({ filters, onChange, totalCount 
 
       {/* Technology filter panel */}
       {showTechFilter && (
-        <div className="bg-[#111111] border border-[#222222] rounded-xl p-4">
-          <p className="text-[#A1A1AA] text-xs font-medium mb-3 uppercase tracking-wider">Teknolojiye Göre Filtrele</p>
+        <div className="bg-bg-card border border-border rounded-xl p-4">
+          <p className="text-text-secondary text-xs font-medium mb-3 uppercase tracking-wider">Teknolojiye Göre Filtrele</p>
           <div className="flex flex-wrap gap-2 max-h-40 overflow-y-auto">
             {TECHNOLOGIES.map((tech) => (
               <button
@@ -123,7 +123,7 @@ export default function ProjectFiltersComponent({ filters, onChange, totalCount 
                   'px-2.5 py-1 rounded-full text-xs border transition-all duration-200',
                   filters.technology === tech
                     ? 'bg-[#3B82F6]/20 border-[#3B82F6]/50 text-[#3B82F6]'
-                    : 'bg-transparent border-[#222222] text-[#A1A1AA] hover:border-[#333333] hover:text-white'
+                    : 'bg-transparent border-border text-text-secondary hover:border-border-subtle hover:text-text-primary'
                 )}
               >
                 {tech}
@@ -135,13 +135,13 @@ export default function ProjectFiltersComponent({ filters, onChange, totalCount 
 
       {/* Results + clear */}
       <div className="flex items-center justify-between">
-        <p className="text-[#52525B] text-sm">
-          <span className="text-white font-medium">{totalCount}</span> proje bulundu
+        <p className="text-text-muted text-sm">
+          <span className="text-text-primary font-medium">{totalCount}</span> proje bulundu
         </p>
         {hasActiveFilters && (
           <button
             onClick={clearAll}
-            className="flex items-center gap-1.5 text-xs text-[#A1A1AA] hover:text-white transition-colors"
+            className="flex items-center gap-1.5 text-xs text-text-secondary hover:text-text-primary transition-colors"
           >
             <X className="w-3.5 h-3.5" />
             Filtreleri temizle
